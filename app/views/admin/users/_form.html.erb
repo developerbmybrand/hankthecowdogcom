@@ -1,0 +1,31 @@
+<%= form_for([:admin, @user]) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> found on this page:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="contactform">
+  <p><label for="email">Email Address</label>
+    <%= f.email_field :email %>
+  </p>
+  <p><label for="first_name">First Name</label>
+    <%= f.text_field :first_name %>
+  </p>
+  <p><label for="last_name">Last Name</label>
+    <%= f.text_field :last_name %>
+  </p>
+  <p><label for="last_name">Password</label>
+    <%= f.password_field :password, :autocomplete => 'off' %> * Leave blank for no password change
+  </p>
+ </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

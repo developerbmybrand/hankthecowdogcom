@@ -1,0 +1,33 @@
+<h1>Books</h1>
+<h4>Explore the complete collection.</h4>
+
+<div class="booknav" id="hankbooks">
+	<ul>
+		<li>Hank Series </li> 
+		<li><a href="/riley">Riley Series </a></li> 
+		<li><a href="/booksother">Non-Fiction </a></li>
+	</ul>
+</div>
+
+<% @inx = 1
+@books.each do |book| %>
+
+<% if @inx == 4 %>
+  <a href="/books/<%= book.id %>"><div class="bookrow">
+  <%= image_tag(book.book_image.thumb.url) if book.book_image? %>
+  <h3><%= book.book_title %></h3>
+  <span class="volume"><%= book.book_volume_number %></span>
+  </div></a>
+<% else %>
+  <a href="/books/<%= book.id %>"><div class="bookrow">
+  <%= image_tag(book.book_image.thumb.url) if book.book_image? %>
+  <h3><%= book.book_title %></h3>
+  <span href="/books/<%= book.id %>" class="volume"><%= book.book_volume_number %></span>
+  </div></a>
+<% end %>
+
+<% @inx += 1 %>
+<% @inx = 1 if @inx == 5 %>
+
+<% end %>
+

@@ -1,0 +1,48 @@
+<%= form_for([:admin, @friend], :html => {:multipart => true}) do |f| %>
+  <% if @friend.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@friend.errors.count, "error") %> found on this page:</h2>
+
+      <ul>
+      <% @friend.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    Name<br />
+    <%= f.text_field :friend_name %>
+  </div> 
+  <div class="field">
+    Description<br />
+    <%= f.text_area :friend_desc, :class => 'tinymce', :cols => "80", :rows => "15" %>
+  </div>
+  <div class="field">
+    Full Image<br />
+    <%= image_tag(@friend.friend_image.url) if !@friend.friend_image.nil? && @friend.friend_image? %>
+    <br>
+    <%= f.file_field :friend_image %>
+    <%= f.hidden_field :friend_image_cache %>
+  </div>
+  <div class="field">
+    Thumbnail Image<br />
+    <%= image_tag(@friend.friend_image_thumb.url) if !@friend.friend_image_thumb.nil? && @friend.friend_image_thumb? %>
+    <br>
+    <%= f.file_field :friend_image_thumb %>
+    <%= f.hidden_field :friend_image_thumb_cache %>
+  </div>  
+  <div class="field">
+    Order Weight<br />
+    <%= f.select :friend_sortweight, sortweights %>
+  </div>    
+  <div class="field">
+    Published?<br />
+    <%= f.check_box :friend_published %>
+  </div>  
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

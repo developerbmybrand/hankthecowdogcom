@@ -1,0 +1,31 @@
+<h1>Books</h1>
+<h3>Explore the complete collection.</h3>
+
+<div class="booknav" id="hankbooks">
+	<ul>
+		<li>Hank the Cowdog</li>
+		<li style="margin-left: 50px"><a href="/riley">Riley McDaniels Series</a></li>
+		<li style="margin-left: 40px"><a href="/booksother">Non-Fiction Books</a></li>
+	</ul>
+</div>
+<ul class="bookrow">
+<% @inx = 1
+@books.each do |book| %>
+
+<% if @inx == 4 %>
+  <li class="last"><a href="/books/<%= book.id %>"><%= image_tag(book.book_image.thumb.url) if book.book_image? %> <div class="bookover"><p class="btitle"><%= book.book_title %></p>
+  	<p class="bnumber"><%= book.book_volume_number %></p>
+  </div></a></li>
+<% else %>
+  <li><a href="/books/<%= book.id %>"><%= image_tag(book.book_image.thumb.url) if book.book_image? %>
+  <div class="bookover"><p class="btitle"><%= book.book_title %></p>
+  	<p class="bnumber"><%= book.book_volume_number %></p>
+  </div>
+  </a></li>
+<% end %>
+
+<% @inx += 1 %>
+<% @inx = 1 if @inx == 5 %>
+    
+<% end %>
+</ul>

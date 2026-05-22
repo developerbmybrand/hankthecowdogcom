@@ -1,0 +1,29 @@
+<h1>Listing Stage Plays</h1>
+
+<% if @screenplays.count > 0 %>
+<table cellpadding="10px">
+  <tr>
+    <th width="50%">Title</th>
+    <th>Sort Weight</th>    
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @screenplays.each do |screenplay| %>
+  <tr>
+    <td width="50%"><%= screenplay.screen_title %></td>
+    <td style="text-align: center"><%= screenplay.screen_sortweight %></td>
+    <td><%= link_to 'Show', [:admin, screenplay], :class => 'button2' %></td>
+    <td><%= link_to 'Edit', edit_admin_screenplay_path(screenplay), :class => 'button2' %></td>
+    <td><%= link_to 'Destroy', [:admin, screenplay], :confirm => 'Are you sure?', :method => :delete, :class => 'button2' %></td>
+  </tr>
+<% end %>
+</table>
+<% else %>
+None yet.  Create a new one!  
+<% end %>
+<br />
+<div class="actions2">
+<%= link_to 'New Screenplay', new_admin_screenplay_path, :class => 'button' %>
+</div>

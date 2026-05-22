@@ -1,0 +1,37 @@
+<% content_for :header do %>
+ <!-- ADDITIONAL PAGE HEADERS HERE -->
+ <%= javascript_include_tag "tictactoe" %>
+ <%= javascript_include_tag "color" %>
+ <%= javascript_include_tag "custom-form-elements" %>
+<% end %>  
+
+<h1>Tic-Tac-Toe</h1>
+<h3>Test your skills on this classic game of strategy.</h3>
+
+<p>Click an empty square to place your X. The first player to get three in a row wins!</p>
+
+<div class="tictactoe">
+	<div id="dashboard">
+		<div class="headings"><h4>Choose Your Oponent</h4><h4 class="stats">Your Stats</h4></div>
+		<div id="level">
+			<span><input type="radio" id="easy" name="level" value="Easy" class="styled"/><label for="easy">Drover</label></span>
+			<span><input type="radio" id="medium" name="level" value="Medium" checked="checked" class="styled"/><label for="medium" >Hank</label></span>
+			<span><input type="radio" id="impossible" name="level" value="Impossible" class="styled" /><label for="impossible">Sally May</label></span>
+		</div>
+		<div id="info">
+			<span class="user-score">Won: 0</span><span class="comp-score">Lost: 0</span>
+		</div>
+		<div id="play-again">Play Again</div>
+	</div>
+
+	<span id="winlose"></span>
+	<div id="wrapper">
+		<div id="row-one"><div id="one" class="square"></div><div id="two" class="square"></div><div id="three" class="square"></div></div>
+		<div id="row-two"><div id="four" class="square"></div><div id="five" class="square"></div><div id="six" class="square"></div></div>
+		<div id="row-three"><div id="seven" class="square"></div><div id="eight" class="square"></div><div id="nine" class="square"></div></div>
+	</div>
+	<p class="credits">
+			Based on code by <a href="http://williamg.me/">William Ganucheau</a>. 
+	</p>
+</div>
+<div class="backbutton"><a href="/games/" class="goback">Go Back</a></div>

@@ -1,0 +1,25 @@
+<h1>Security Force Credentials</h1>
+<%= form_tag("/admin/secforce", :method => :post) do %>
+    <% if flash[:errors] %>
+    <div id="error_explanation">
+        <ul>
+          <li class="red"><%= flash[:errors] %></li>
+          <li class="green"></li>
+        </ul>
+    </div>
+    <% end %>
+
+    <div class="field">
+        User Name<br />
+        <%= text_field_tag :secforce_username, @secforce.secforce_username, :autocomplete => 'off' %>
+    </div>
+
+    <div class="field">
+        Password<br />
+        <%= password_field_tag :secforce_password, '', :autocomplete => 'off' %> * Leave blank for no password change
+    </div>
+
+    <div class="actions">
+        <%= submit_tag("Update") %>
+    </div>
+<% end %>

@@ -1,0 +1,74 @@
+<script language="javascript">
+    $(document).ready(function() {
+        $("#jquery_jplayer_1").jPlayer({
+            ready: function (event) {
+                $(this).jPlayer("setMedia", {
+                    mp3:"<%= @book.book_audio.url if @book.book_audio %>"
+                });
+            },
+            swfPath: "/javascripts",
+            supplied: "mp3",
+            wmode: "window"
+        });
+    });
+</script>
+
+<% content_for :facebookimage do %>
+<meta property="og:image" content="<%= @book.book_image.url %>"/>
+<% end %>
+
+<div class="bookdetail">
+    <h1 class="booktitle"><%= @book.book_title %></h1>	
+    <div class="volume"><span>volume</span><p><%= @book.book_volume_number %></p></div>        
+    <div class="left"><a href="<%= raw(@book.book_link) %>"><%= image_tag(@book.book_image.thumblarge.url) if @book.book_image? %></a>
+    <a href="<%= raw(@book.book_link) %>" class="buy">buy</a>
+    </div>
+    <div class="right">
+    <p><%= raw(@book.book_desc) %></p>
+    </div>
+
+    <% if @book.book_audio? %>
+    <div class="audio">
+        <h2>Audio Book Excerpt</h2>
+        <a href="<%= raw(@book.book_linkcd) %>" class="buy">buy</a>
+        <a href="<%= raw(@book.book_linkaudible) %>" class="download">Download</a>
+        <div id="jquery_jplayer_1" class="jp-jplayer"></div>
+
+        <div id="jp_interface_1" class="jp-audio">
+        	<div class="jp-gui jp-interface">
+            	<div class="jp-type-single">
+            		<ul class="jp-controls">
+                		<li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
+                		<li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
+                		<li><a href="javascript:;" class="jp-stop" tabindex="1">stop</a></li>
+            		</ul>
+            		<div class="jp-progress">
+                		<div class="jp-seek-bar">
+                    		<div class="jp-play-bar"></div>
+                		</div>
+            		</div>
+            		<div class="jp-volume-bar">
+                		<div class="jp-volume-bar-value"></div>
+            		</div>
+            		<div class="jp-time-holder">
+                		<div class="jp-current-time"></div>
+                		<div class="jp-duration"></div>
+            		</div>
+            	</div>
+        	</div>
+        </div>
+    </div>
+    <div style="font-size:8pt">* No audio?  Install <a href="http://get.adobe.com/flashplayer/">Adobe Flash</a>.</div>
+    <% end %>
+
+	<% if @book.book_excerpt_title? %>
+    <div class="chapter">
+    <h2>Read a Chapter</h2>
+    <h3><%= raw(@book.book_excerpt_title) %></h3>
+    <div class="scroll-pane">
+      <%= raw(@book.book_excerpt_detail) %>
+    </div>
+    </div>
+	<% end %>
+</div>
+<div class="top"><a href="#top">back to top</a></div>				

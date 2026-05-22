@@ -1,0 +1,40 @@
+<%= form_for([:admin, @printout], :html => {:multipart => true}) do |f| %>
+    <% if @printout.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@printout.errors.count, "error") %> prohibited this printout from being saved:</h2>
+
+      <ul>
+      <% @printout.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+    <% end %>
+
+    <div class="field">
+        Name<br />
+        <%= f.text_field :printout_name %>
+    </div>
+    <div class="field">
+        Description<br />
+        <%= f.text_field :printout_description %>
+    </div>
+    <div class="field">
+        Image<br />
+        <%= image_tag(@printout.printout_image.url) if !@printout.printout_image.nil? && @printout.printout_image? %>
+        <br>
+        <%= f.file_field :printout_image %>
+        <%= f.hidden_field :printout_image_cache %>
+    </div>
+    <div class="field">
+        File<br />
+        <%= link_to('Download', @printout.printout_filename.url) if @printout.printout_filename? && !@printout.printout_filename.nil? %>
+        <br>
+        <%= f.file_field :printout_filename %>
+        <%= f.hidden_field :printout_filename_cache %>
+    </div>
+
+    <div class="actions">
+        <%= f.submit %>
+    </div>
+<% end %>

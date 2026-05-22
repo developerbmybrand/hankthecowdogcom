@@ -1,0 +1,57 @@
+<%= javascript_include_tag "jcarousellite.min" %>
+<script type="text/javascript">
+		$(document).ready(function() {
+    $(".carousel").jCarouselLite({
+        btnNext: ".next",
+        btnPrev: ".prev"
+    });
+    $(".carousel2").jCarouselLite({
+        btnNext: ".next2",
+        btnPrev: ".prev2"
+    });
+    $(".carousel3").jCarouselLite({
+        btnNext: ".next3",
+        btnPrev: ".prev3"
+    });
+});
+</script>
+<h1>Fan Zone</h1>
+    <h3>Fun Games, activities and more!</h3>
+    <div class="fanzone">
+        <h2>Games</h2>
+        <div class="carousel">
+            <ul><li><a href="/games/memory/"><img src="/images/thumbs/g-memory.png" width="140px" height="140px" alt="Ranch Memory" /></a></li>
+                <li><a href="/games/whackacoyote/"><img src="/images/thumbs/g-whack.png" width="140px" height="140px" alt="whack-a-coyote" /></a></li>
+                <li><a href="/games/dogage/"><img src="/images/thumbs/g-dogage.png" width="140px" height="140px" alt="your dog age" /></a></li>
+                <li><a href="/games/reaction/"><img src="/images/thumbs/g-speed.png" width="140px" height="140px" alt="reaction test" /></a></li>
+                <li><a href="/games/tictactoe/"><img src="/images/thumbs/g-tictactoe.png" width="140px" height="140px" alt="tic-tac-toe" /></a></li>
+                <li><a href="/games/closet/"><img src="/images/thumbs/g-old.png" width="140px" height="140px" alt="tic-tac-toe" /></a></li>
+            </ul>
+            </div>
+            <a class="next" href="#">next</a>
+        <h2>Print-Outs</h2>
+        <div class="carousel2">
+        <ul>
+            <% @printouts.each do |printout| %>
+                <li><a href="<%= printout.printout_filename %>"><img src="<%= printout.printout_image %>" width="140px" height="140px" alt="<%= printout.printout_name %>" /></a></li>
+            <% end %>
+        </ul>
+        </div>
+        <a class="next2" href="#">next</a>
+        <h2><a href="/friends">The Ranch Gang</a></h2>
+        <div class="carousel3">
+            <ul>
+                    <% @friends.each do |friend| %>
+                    <li><a href="/friends/<%= friend.friend_slug %>"><%= image_tag(friend.friend_image_thumb.url) if friend.friend_image_thumb? %></a></li>
+                    <% end %>
+            </ul>
+        </div>
+            <a class="next3" href="#">next</a>
+        <h2>Security Force</h2>
+        <div class="securityfan">
+        	<p>Hank's exclusive member's-only club!</p>
+        	<a class="register" href="http://shop.hankthecowdog.com/Sec-Force-Membership-paperback-1299/productinfo/SFI/">Register</a>
+        	<a class="signin" href="/securityforce">Sign In</a>
+        </div>
+    </div>
+    <div class="top"><a href="#top">back to top</a></div>

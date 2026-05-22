@@ -1,0 +1,164 @@
+<h1>Hank's Music</h1>
+<h3>Hank the Cowdog’s "Greatest Hits" bring together the music from the audiobooks you know and love! This wonderful collection of hilarious and sometimes touching songs is unmatched. Where else can you learn about coyote philosophy, buzzard lore, why your dog is protecting an old corncob, or how bugs compare to hot dog buns, and much more!</h3>
+<ul class="music-albums">
+  <li><img src="images/gh-album-1.jpg" alt="Hank's Greatest Hits Volume 1"/>
+    <p><a href="https://itunes.apple.com/us/album/hank-cowdogs-greatest-hits/id918522114" target="_blank">iTunes</a> |
+      <a href="http://shop.hankthecowdog.com/Hanks-Greatest-Hits-Vol-1-2-CDs/productinfo/791/">Hank's Store</a>
+    </p>
+  </li>
+  <li><img src="images/gh-album-2.jpg" alt="Hank's Greatest Hits Volume 2"/>
+    <p><a href="https://itunes.apple.com/us/album/hank-cowdogs-greatest-hits/id918618833" target="_blank">iTunes</a> |
+      <a href="http://shop.hankthecowdog.com/Hanks-Greatest-Hits-Vol-1-2-CDs/productinfo/791/">Hank's Store</a>
+    </p>
+  </li>
+  <li><img src="images/gh-album-3.jpg" alt="Hank's Greatest Hits Volume 3"/>
+    <p><a href="https://itunes.apple.com/us/album/hank-cowdogs-greatest-hits/id918809167" target="_blank">iTunes</a> |
+      <a href="http://shop.hankthecowdog.com/Hanks-Greatest-Hits-Vol-3-4-CDs/productinfo/792/">Hank's Store</a>
+    </p>
+  </li>
+  <li><img src="images/gh-album-4.jpg" alt="Hank's Greatest Hits Volume 4"/>
+    <p><a href="https://itunes.apple.com/us/album/hank-cowdogs-greatest-hits/id919370434" target="_blank">iTunes</a> |
+      <a href="http://shop.hankthecowdog.com/Hanks-Greatest-Hits-Vol-3-4-CDs/productinfo/792/">Hank's Store</a>
+    </p>
+  </li>
+  <li><img src="images/gh-album-5.jpg" alt="Hank's Greatest Hits Volume 5"/>
+    <p><a href="https://itunes.apple.com/us/album/hank-cowdogs-greatest-hits/id921948849" target="_blank">iTunes</a>
+    </p>
+  </li>
+</ul>
+<div class="music-block">
+  <h2 class="songs">Songs</h2>
+  <p class="subtitle">Listen to a few of our favorites, and find all of the rest<br>
+   in Hank's Shop or on iTunes at the links above!</p>
+   <div class="hankbanjo"></div>
+   <div class="dogshowl"></div>
+  <ul class="tracks">
+
+    <% @songs.each do |song| %>
+
+        <li>
+          <p class="songtitle"><%= song.title %></p>
+          <p clas="singer"><%= song.artist %></p>
+
+          <script language="javascript">
+              $(document).ready(function () {
+                  $("#jquery_jplayer_<%= song.id %>").jPlayer({
+                      ready: function (event) {
+                          $(this).jPlayer("setMedia", {
+                              mp3: "<%= song.song_audio.url %>"
+                          });
+                      },
+                      swfPath: "/javascripts",
+                      supplied: "mp3",
+                      wmode: "window",
+                      cssSelectorAncestor: "#jp_interface_<%= song.id %>"
+                  });
+              });
+          </script>
+
+          <div class="agg">
+            <div class="player">
+              <div id="jquery_jplayer_<%= song.id %>" class="jp-jplayer"></div>
+
+              <div id="jp_interface_<%= song.id %>" class="jp-audio">
+                <div class="jp-gui jp-interface">
+                  <div class="jp-type-single">
+                    <ul class="jp-controls">
+                      <li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
+                      <li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
+                      <li><a href="javascript:;" class="jp-stop" tabindex="1">stop</a></li>
+                    </ul>
+                    <div class="jp-progress">
+                      <div class="jp-seek-bar">
+                        <div class="jp-play-bar"></div>
+                      </div>
+                    </div>
+                    <div class="jp-volume-bar">
+                      <div class="jp-volume-bar-value"></div>
+                    </div>
+                    <div class="jp-time-holder">
+                      <div class="jp-current-time"></div>
+                      <div class="jp-duration"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+    <% end %>
+
+  </ul>
+  <ul class="linkbuttons">
+    <li><a href="http://hankthecowdog.com/feature/song-lyrics">View Song Lyrics</a></li>
+    <!--<li><a href="http://shop.hankthecowdog.com/Hanks-Greatest-Hits-Vol-1-2-CDs/productinfo/791/">Buy in Hank's Shop</a></li>-->
+    <!--<li><a href="#">Buy on iTunes</a></li> -->
+  </ul>
+  <h2 class="ringtones">Ringtones</h2>
+
+  <ul class="tracks tones">
+
+    <% @ringtones.each do |ringtone| %>
+
+        <li>
+          <p class="songtitle"><%= ringtone.title %></p>
+          <a href="<%= ringtone.ringtone_audio.url %>" class="dwnld">Download</a>
+
+          <script language="javascript">
+              $(document).ready(function () {
+                  $("#jquery_jplayer_<%= ringtone.id + 1000 %>").jPlayer({
+                      ready: function (event) {
+                          $(this).jPlayer("setMedia", {
+                              mp3: "<%= ringtone.ringtone_audio.url %>"
+                          });
+                      },
+                      swfPath: "/javascripts",
+                      supplied: "mp3",
+                      wmode: "window",
+                      cssSelectorAncestor: "#jp_interface_<%= ringtone.id + 1000 %>"
+                  });
+              });
+          </script>
+
+          <div class="agg">
+            <div class="player">
+              <div id="jquery_jplayer_<%= ringtone.id + 1000 %>" class="jp-jplayer"></div>
+
+              <div id="jp_interface_<%= ringtone.id + 1000 %>" class="jp-audio">
+                <div class="jp-gui jp-interface">
+                  <div class="jp-type-single">
+                    <ul class="jp-controls">
+                      <li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
+                      <li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
+                      <li><a href="javascript:;" class="jp-stop" tabindex="1">stop</a></li>
+                    </ul>
+                    <div class="jp-progress">
+                      <div class="jp-seek-bar">
+                        <div class="jp-play-bar"></div>
+                      </div>
+                    </div>
+                    <div class="jp-volume-bar">
+                      <div class="jp-volume-bar-value"></div>
+                    </div>
+                    <div class="jp-time-holder">
+                      <div class="jp-current-time"></div>
+                      <div class="jp-duration"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+    <% end %>
+
+  </ul>
+
+
+</div>
+
+<div class="music-bg"></div>
+
+

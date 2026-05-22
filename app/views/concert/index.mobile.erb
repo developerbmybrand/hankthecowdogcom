@@ -1,0 +1,73 @@
+<h1>Concerts</h1>
+<h4>Hank the Cowdog in Concert</h4>
+
+  <% if @contact.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@contact.errors.count, "error") %> found on this page:</h2>
+
+      <ul>
+      <% @contact.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div style="color:green"><%= flash[:notice] %></div>
+  <br>
+
+<p>
+Teachers and librarians who are trying to promote the joy of reading and encourage the reluctant reader have found their students respond well to Mr. Erickson's performances which include readings from the books and performing the songs that are contained throughout the series.
+</p>
+<h2>The Program</h2>
+<p>"Hank the Cowdog In Concert" is a 60 minute program of innocent fun and wholesome family entertainment. Through songs and readings, John R. Erickson brings to life the characters from his award-winning Hank the Cowdog series of books and audio books. He has performed for people of all ages and backgrounds, but the audience he has in mind is the ordinary elementary student. Teachers and librarians who are trying to promote the joy of reading and encourage the reluctant reader have found their students respond well to Mr. Erickson's performances which include readings from the books and performing the songs that are contained throughout the series. (From what we have heard from librarians, Hank books rarely stay on the shelf at the library following a school visit by Mr. Erickson.)
+</p>
+<p>
+<span class="bold">Fee Schedule for Schools:</span> Mr. Erickson's fee is $3,000 for two programs plus travel and lodging expenses. If an additional program is required, the fee is increased by $750.
+</p>
+<p>
+<span class="bold">Expenses</span> include airfare, mileage, hotel, and meals. Meals can be eaten at the school if that is what is convenient. The fee must be paid on the date of the performance.
+</p>
+<p>
+<span class="bold">Equipment:</span> Mr. Erickson's needs are simple: two microphones on stands, placed at center stage; a small table; and a glass of drinking water and a table large enough to hold his banjo and a couple of books.
+</p>
+<p>
+<span class="bold">Travel:</span> Mr. Erickson should be met at the airport by a local person. If that is not feasible, a rental car will be hired and directions to the site must be provided with the booking sheet.
+</p>
+<p>
+<span class="bold">Lodging:</span> Mr. Erickson requires a hotel room. Many times local hotels/motels will be willing to offer complimentary rooms when they are aware that it is a school-sponsored event.
+</p>
+<p>
+<span class="bold">Book and Audio Sales:</span> Maverick Books provides the books and tapes at substantial discounts to allow mark up for fundraising. If this is not convenient, local bookstores are usually willing to assist in setting up book sales.
+</p>
+<p>
+<span class="bold">Autographing:</span> Autographing sessions must be pre-approved by the booking agent prior to the booking.
+</p>
+<p>
+<span class="bold">What Mr. Erickson will not do. . .</span><br>
+
+Jr. High performances that include 7th or 8th grade students. (Our experience is that the students of that age do not enjoy the performances and tend to be disruptive.)
+
+Visit individual classrooms or groups of students. Personalize any books nor will he sign programs, pieces of paper, or books brought from home.
+
+</p>
+<h2>Get in Touch</h2>
+<p> Interested in bringing Hank the Cowdog to your school or venue? Fill out the form below or call: 806-435-7611</p>
+<div class="authorform">
+  <%= form_for :contact do |f| %>
+
+    <p><label for="contact_name">Your Name</label><br>
+    <%= f.text_field :name, :size => 40 %></p>
+    <p><label for="contact_email">Your Email</label><br>
+    <%= f.text_field :email, :size => 40 %></p>
+    <p><label for="contact_phone">Your Phone</label><br>
+    <%= f.text_field :phone, :size => 40 %></p>
+    <p><label for="contact_message">Your Message</label><br>
+        <%= f.text_area :message, :cols => 10, :rows => 1 %>
+    </p>
+    <p><%= recaptcha_tags %></p>
+    <%= f.submit 'Send', :class => 'sendit' %>
+  <% end %>
+  </div>
+
+

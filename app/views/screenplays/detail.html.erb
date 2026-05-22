@@ -1,0 +1,61 @@
+<h1><%= @screenplay.screen_title %></h1>
+<h3><%= raw(@screenplay.screen_desc) %></h3>
+
+<% if @contact.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@contact.errors.count, "error") %> found on this page:</h2>
+
+    <ul>
+    <% @contact.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div style="color:green"><%= flash[:notice] %></div>
+<div class="stageplays">
+<h3>Characters</h3>
+<%= raw(@screenplay.screen_characters) %>
+<h3>Story</h3>
+<%= raw(@screenplay.screen_story) %>
+
+<% unless @screenplay.screen_songs.blank? %>
+<h3>Songs</h3>
+<%= raw(@screenplay.screen_songs) %>
+<% end  %>
+
+<% unless @screenplay.screen_oneact.blank? %>
+<h3>One-Act Play</h3>
+<%= raw(@screenplay.screen_oneact) %>
+<% end  %>
+
+</div>
+<%= form_for :contact do |f| %>
+<h2>Get in Touch</h2>
+<p>Please fill out the form below to get information on licensing this play.</p>
+<div class="authorform">
+<div class="authorformleft">
+  <p><label for="contact_name">Your Name</label>
+  <%= f.text_field :name, :size => 40 %></p>
+  <p><label for="contact_email">Your Email</label>
+  <%= f.text_field :email, :size => 40 %></p>
+  <p><label for="contact_phone">Your Phone</label>
+  <%= f.text_field :phone, :size => 40 %></p>
+  <p><%= recaptcha_tags %></p>
+  <%= f.submit 'Send', :class => 'sendit' %>
+</div>
+<div class="authorformright">
+  <p><label for="contact_message">Your Message</label>
+      <%= f.text_area :message, :cols => 10, :rows => 1 %>
+  </p>                  
+</div>
+</div>
+<% end %>
+
+<script language="javascript">
+    $(document).ready(function(){
+      // Contact form labels
+      $("label").inFieldLabels();
+    });
+</script>

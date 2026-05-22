@@ -1,0 +1,22 @@
+<%= form_for([:admin, @admin_type_blog_tag]) do |f| %>
+  <% if @admin_type_blog_tag.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@admin_type_blog_tag.errors.count, "error") %> found on this page:</h2>
+
+      <ul>
+      <% @admin_type_blog_tag.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    Tag Name<br />
+    <%= f.text_field :type_name %>
+  </div> 
+
+  <div class="actions">
+    <%= f.submit 'Save' %>
+  </div>
+<% end %>

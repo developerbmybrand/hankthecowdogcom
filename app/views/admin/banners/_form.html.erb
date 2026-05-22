@@ -1,0 +1,41 @@
+<%= form_for([:admin, @banner], :html => {:multipart => true}) do |f| %>
+  <% if @banner.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@banner.errors.count, "error") %> found on this page:</h2>
+
+      <ul>
+      <% @banner.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    Banner Title<br />
+    <%= f.text_field :banner_title %>
+  </div>
+  <div class="field">
+    Banner Link<br />
+    <%= f.text_field :banner_link %>
+  </div>
+  <div class="field">
+    Banner Image<br />
+    <%= image_tag(@banner.banner_image.thumb.url) if @banner.banner_image? %>
+    <br>
+    <%= f.file_field :banner_image %>
+    <%= f.hidden_field :banner_image_cache %>
+  </div>
+  <div class="field">
+    Order Weight<br />
+    <%= f.select :banner_sortweight, sortweights %>
+  </div>  
+  <div class="field">
+    Published?<br />
+    <%= f.check_box :banner_published %>
+  </div>
+    
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

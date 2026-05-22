@@ -1,0 +1,13 @@
+<h1 id="top">The Ranch Gang</h1>
+<h4>Meet Hank and Friends</h4>
+
+	
+	<ul class="friends">
+		<% @friends.each do |friend| %>
+		<a href="/friends/<%= friend.friend_slug %>"><li>
+		<%= image_tag(friend.friend_image_thumb.url) if friend.friend_image_thumb? %>
+		<h3><%= friend.friend_name %></h3>
+		</li></a>
+		<% end %>
+	</ul>
+

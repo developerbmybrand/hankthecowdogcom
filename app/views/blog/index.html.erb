@@ -1,0 +1,25 @@
+<h1>The Blog</h1>
+
+<% unless @posts.nil? %>
+  <% @posts.each do |post| %>
+  <div class="blogpost">
+  <h3>
+    <%= link_to post.blog_title, post_link_path(post) %></h3>
+  <p class="postmeta"><%= post.blog_postdate.strftime("%A, %B %d, %Y") %> 
+<% unless post.blog_author.nil? || post.blog_author.empty? %>
+    | By <%= post.blog_author %>
+    <% end %>
+  <% unless current_auth.nil? %>
+    | <%= link_to 'Edit Post', edit_admin_blog_path(post.id) %>
+    <% end %>
+  </p>
+
+  <div class="postbody">
+    <%= raw(short_post(post.blog_body)) %>
+    <%= link_to 'Read More',post_link_path(post), :class => 'more' %>
+  </div>
+</div>
+<% end %>
+<% else %>
+<% end %>
+

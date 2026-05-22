@@ -1,0 +1,71 @@
+<h1>Search Results</h1>
+
+<% if @content_results.count > 0 %>
+<h2>Web Site</h2>
+<% end %>
+<% @content_results.each do |result| %>
+
+  <b><a href="<%= define_content_path(result) %>"><%= result.content_title %></a></b>
+  <p><%= raw(result.content_text) %></p>
+  <br>
+<% end %>
+
+<% if @blog_results.count > 0 %>
+<h2>Blog Posts</h2>
+<% end %>
+<% @blog_results.each do |result| %>
+
+  <b><a href="<%= define_blog_path(result) %>"><%= result.blog_title %></a></b>
+  <p><%= raw(short_post(result.blog_body)) %></p>
+  <br>
+<% end %>
+
+<% if @book_results.count > 0 %>
+<h2>Books</h2>
+<% end %>
+<% @book_results.each do |result| %>
+
+  <b><a href="<%= define_book_path(result) %>"><%= result.book_title %></a></b>
+  <p><%= raw(short_post(result.book_desc)) %></p>
+  <br>
+<% end %>
+
+<% if @recipe_results.count > 0 %>
+<h2>Recipes</h2>
+<% end %>
+<% @recipe_results.each do |result| %>
+
+  <b><a href="<%= define_recipe_path(result) %>"><%= result.recipe_title %></a></b>
+  <p><%= raw(short_post(result.recipe_desc)) %></p>
+  <br>
+<% end %>
+
+<% if @friend_results.count > 0 %>
+<h2>Friends</h2>
+<% end %>
+<% @friend_results.each do |result| %>
+
+  <b><a href="<%= define_friend_path(result) %>"><%= result.friend_name %></a></b>
+  <p><%= raw(short_post(result.friend_desc)) %></p>
+  <br>
+<% end %>
+
+<% if @screenplay_results.count > 0 %>
+<h2>Screen Plays</h2>
+<% end %>
+<% @screenplay_results.each do |result| %>
+
+  <b><a href="<%= define_screenplay_path(result) %>"><%= result.screen_title %></a></b>
+  <p><%= raw(short_post(result.screen_desc)) %></p>
+  <br>
+<% end %>
+
+<% if @content_results.count == 0 && @blog_results.count == 0 && @recipe_results.count == 0 && @book_results.count == 0 && @friend_results.count == 0 && @screenplay_results.count == 0 %>
+Sorry, no search results.
+<% end %>
+<script language="javascript">
+    $(document).ready(function(){
+      // Contact form labels
+      $("label").inFieldLabels();
+    });
+</script>

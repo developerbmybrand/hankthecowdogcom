@@ -1,0 +1,8 @@
+<h1>Editing recipe</h1>
+
+<%= render 'form' %>
+<div class="actions2">
+<%= link_to 'Show', [:admin, @recipe], :class => 'button2' %> 
+<%= link_to 'Back', admin_recipes_path, :class => 'button2' %> 
+<%= link_to 'Delete', [:admin, @recipe], :confirm => 'Are you sure?', :method => :delete, :class => 'button2' %>
+</div>

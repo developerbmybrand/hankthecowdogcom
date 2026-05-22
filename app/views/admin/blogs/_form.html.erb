@@ -1,0 +1,60 @@
+<%= form_for([:admin, @blog], :html => {:multipart => true}) do |f| %>
+  <% if @blog.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@blog.errors.count, "error") %> found on this page:</h2>
+
+      <ul>
+      <% @blog.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    Category<br />
+    <%= f.collection_select :type_blog_category_id, TypeBlogCategory.ordered(:type_name), :id, :type_name, {:prompt => '--Select--'} %>
+  </div>
+  <div class="field">
+    Tags<br />
+    <% @blog_tags.each do |tag| %>
+      <%= check_box_tag 'tags[]', tag.id, tag_is_being_used?(@blog, tag) %><%= tag.type_name %>&nbsp;
+    <% end %>
+  </div>
+  <div class="field">
+    Blog Title<br />
+    <%= f.text_field :blog_title %>
+  </div> 
+  <div class="field">
+    Blog Body<br />
+    <%= f.text_area :blog_body, :class => "tinymce", :cols => "80", :rows => "15" %>
+  </div>
+  <div class="field">
+    Blog Author<br />
+    <%= f.text_field :blog_author %>
+  </div>   
+  <div class="field">
+    Blog Image<br />
+    <%= image_tag(@blog.blog_image.url) if @blog.blog_image? && !@blog.blog_image.nil? %>
+    <br>
+    <%= f.file_field :blog_image %>
+    <%= f.hidden_field :blog_image_cache %>
+  </div>  
+  <div class="field">
+    Post Date<br />
+    <%= f.date_select :blog_postdate %>
+  </div>
+  <div class="field">
+    Published?<br />
+    <%= f.check_box :blog_published %>
+  </div>
+  <div class="field">
+    Allow Comments?<br />
+    <%= f.check_box :blog_comments_allowed %>
+  </div>  
+  
+  <%= f.hidden_field :user_id %>
+  <div class="actions">
+    <%= f.submit 'Update Post' %>
+  </div>
+<% end %>

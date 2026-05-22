@@ -1,0 +1,60 @@
+<h1>Meet the Author</h1>
+<h4>John R. Erickson</h4>
+
+  <% if @contact.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@contact.errors.count, "error") %> found on this page:</h2>
+
+      <ul>
+      <% @contact.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div style="color:green"><%= flash[:notice] %></div>
+
+
+<p><img src="images/author-pic.jpg" alt="John R. Erickson" class="authorpic">
+<%= insert_content('Author Header') %>
+
+<%= insert_content('Author More') %>
+
+<a class="visitblog" href="/blog">Visit the Blog</a>
+
+  <%= insert_content('Author Content') %>
+  <%= insert_content_image('Author Content') %>
+
+
+    <div class="events">
+    <h3>Upcoming Appearances</h3>
+        <div class="eventfeedlist">
+          <% @events.each do |event| %>
+            <div class="itemblock">
+                <div class="date"><%= event.blog_postdate.strftime("%b") %><br /><span><%= event.blog_postdate.strftime("%d") %></span></div>
+                <p><a href="/blog/<%= event.blog_slug %>"><%= event.blog_title %></a></p>
+            </div>
+          <% end %>
+        </div>
+        <a class="seemore" href="/events">See More</a>
+    </div>
+
+<div class="authorform">
+<h3>Get in Touch</h3>
+  <%= form_for :contact do |f| %>
+    <p><label for="contact_name">Your Name</label><br>
+    <%= f.text_field :name, :size => 40 %></p>
+    <p><label for="contact_email">Your Email</label><br>
+    <%= f.text_field :email, :size => 40 %></p>
+    <p><label for="contact_phone">Your Phone</label><br>
+    <%= f.text_field :phone, :size => 40 %></p>
+    <p><label for="contact_message">Your Message</label><br>
+        <%= f.text_area :message, :cols => 10, :rows => 1 %>
+    </p>
+    <p><%= recaptcha_tags %></p>
+    <%= f.submit 'Send', :class => 'sendit' %>                
+
+  <% end %>
+</div>
+

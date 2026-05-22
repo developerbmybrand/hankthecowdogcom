@@ -1,0 +1,24 @@
+Administration Login
+<%= form_tag("/admin", :method => :post) do %>
+    <% if flash[:errors] %>
+    <div id="error_explanation">
+        <ul>
+          <li><%= flash[:errors] %></li>
+        </ul>
+    </div>
+    <% end %>
+<br>
+    <div class="field">
+        Username<br />
+        <%= text_field_tag :email %>
+    </div>
+
+    <div class="field">
+      Password<br />
+      <%= password_field_tag :password %>
+    </div>
+
+    <div class="actions">
+        <%= submit_tag("Login") %>
+    </div>
+<% end %>

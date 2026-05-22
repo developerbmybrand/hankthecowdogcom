@@ -1,0 +1,20 @@
+<h1 class="booktitle" id="top"><%= @book.book_title %></h1>
+<h4>Volume <%= @book.book_volume_number %></h4>
+   
+<div class="left"><a href="<%= raw(@book.book_link) %>"><%= image_tag(@book.book_image.thumblarge.url) if @book.book_image? %></a>
+    <a href="<%= raw(@book.book_link) %>" class="buy">buy</a>
+</div>
+    
+    <p><%= raw(@book.book_desc) %></p>
+
+    <a href="<%= raw(@book.book_linkaudible) %>">AUDIBLE.COM LINK</a>
+
+	<% if @book.book_excerpt_title? %>
+    <div class="chapter">
+    <h4>Read a Chapter</h4>
+    <h3><%= raw(@book.book_excerpt_title) %></h3>
+    <%= raw(@book.book_excerpt_detail) %>
+    
+    </div>
+    <a class="top" href="#top">back to top</a>
+	<% end %>

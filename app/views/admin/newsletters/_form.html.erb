@@ -1,0 +1,36 @@
+<%= form_for([:admin, @newsletter], :html => {:multipart => true}) do |f| %>
+  <% if @newsletter.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@newsletter.errors.count, "error") %> prohibited this newsletter from being saved:</h2>
+
+      <ul>
+      <% @newsletter.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    Name<br />
+    <%= f.text_field :newsletter_name %>
+  </div>
+  <div class="field">
+    Date<br />
+    <%= f.date_select :newsletter_date %>
+  </div>
+  <div class="field">
+    File<br />
+    <%= link_to('Download', @newsletter.newsletter_path.url) if @newsletter.newsletter_path? && !@newsletter.newsletter_path.nil? %>
+    <br>
+    <%= f.file_field :newsletter_path %>
+    <%= f.hidden_field :newsletter_path_cache %>
+  </div>
+  <div class="field">
+    Published?<br />
+    <%= f.check_box :newsletter_published %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

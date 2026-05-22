@@ -1,0 +1,26 @@
+<h1>Listing Songs</h1>
+
+<table cellpadding="10px">
+  <tr>
+    <th width="75%">Title</th>
+    <th width="75%">Artist</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @songs.each do |song| %>
+  <tr>
+    <td width="75%"><%= song.title %></td>
+    <td width="75%"><%= song.artist %></td>
+    <td><%= link_to 'Show', [:admin, song], :class => 'button2' %></td>
+    <td><%= link_to 'Edit', edit_admin_song_path(song), :class => 'button2' %></td>
+    <td><%= link_to 'Destroy', [:admin, song], :confirm => 'Are you sure?', :method => :delete, :class => 'button2' %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<div class="actions2">
+<%= link_to 'New Song', new_admin_song_path, :class => 'button' %>
+</div>

@@ -1,0 +1,57 @@
+<%= form_for([:admin, @bookother], :html => {:multipart => true}) do |f| %>
+  <% if @bookother.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bookother.errors.count, "error") %> found on this page:</h2>
+
+      <ul>
+      <% @bookother.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    Book Title<br />
+    <%= f.text_field :book_title %>
+  </div> 
+  <div class="field">
+    Book Description<br />
+    <%= f.text_area :book_desc, :class => 'tinymce', :cols => "80", :rows => "15" %>
+  </div>
+  <div class="field">
+    Book Excerpt Title<br />
+    <%= f.text_field :book_excerpt_title %>
+  </div>  
+  <div class="field">
+    Book Excerpt<br />
+    <%= f.text_area :book_excerpt_detail, :class => 'tinymce', :cols => "80", :rows => "10" %>
+  </div>
+  <div class="field">
+    Book Volume<br />
+    <%= f.text_field :book_volume_number %>
+  </div> 
+  <div class="field">
+    Book Image<br />
+    <%= image_tag(@bookother.book_image.thumb.url) if @bookother.book_image? && !@bookother.book_image.thumb.nil? %>
+    <br>
+    <%= f.file_field :book_image %>
+    <%= f.hidden_field :book_image_cache %>
+  </div>
+  <div class="field">
+    Book Store Link<br />
+    <%= f.text_field :book_link %>
+  </div> 
+  <div class="field">
+    Order Weight<br />
+    <%= f.select :book_sortweight, sortweights %>
+  </div>   
+  <div class="field">
+    Published?<br />
+    <%= f.check_box :book_published %>
+  </div>  
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,16 @@
+<h1>Print-Out Activities</h1>
+<h3>Download these fun activity pages.</h3>
+
+<% if @printouts.count > 0 %>
+    <% @printouts.each do |printout| %>
+        <div class="thumbblock">
+        <a href="<%= printout.printout_filename %>" class="thumb"><img src="<%= printout.printout_image %>" alt="%= printout.printout_name %>" target="_blank" /></a>
+        <h2><%= printout.printout_name %></h2>
+        <p><%= printout.printout_description %><br>
+        </p>
+        <a href="<%= printout.printout_filename %>" target="_blank" class="go">Let's Go</a>
+        </div>
+    <% end %>
+<% else %>
+    Sorry, no printouts here.
+<% end %>

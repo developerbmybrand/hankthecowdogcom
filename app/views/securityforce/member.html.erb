@@ -1,0 +1,99 @@
+<h1>Security Force</h1>
+<h3>Welcome to the club.</h3>
+
+<div class="standardblock">
+<h2><a href="<%= @newletter.newsletter_path %>">Download the Newsletter</a></h2>
+<p>Download the latest Security Force newsletter right here.<br>
+<a href="<%= @newletter.newsletter_path %>" class="go">Go</a></p>
+</div>
+<div class="standardblock">
+<h2><a href="http://shop.hankthecowdog.com/emailpromotion.asp?key=HT54&dest=http%3A%2F%2Fshop%2Ehankthecowdog%2Ecom%2FSecurity-Force-Specials%2Fproducts%2F11%2F">Shop at a discount!</a></h2>
+<p>As a Security Force member you'll get discounts on cool Hank stuff.<br>
+<a href="http://shop.hankthecowdog.com/emailpromotion.asp?key=HT54&dest=http%3A%2F%2Fshop%2Ehankthecowdog%2Ecom%2FSecurity-Force-Specials%2Fproducts%2F11%2F" class="go">Go</a>
+</p>
+</div>
+<div class="standardblock">
+<h2><a href="/securityforce/dancingcowboy/">The Case of the Dancing Cowboy</a></h2>
+<p>Read an original Hank the Cowdog serial.<br>
+<a href="/securityforce/dancingcowboy/" class="go">Go</a>
+</p>
+</div>
+<div class="standardblock">
+<h2><a href="/securityforce/map/">Explore the Ranch</a></h2>
+<p>See a map of Hank's Ranch and the surrounding area.<br>
+<a href="/securityforce/map/" class="go">Go</a>
+</p>
+</div>
+<div class="standardblock">
+<h2>Download Hank Desktops</h2>
+	<div class="dtp">
+		<img src="/images/dtp-logo.png" alt="logo desktop">
+		<ul>
+			<li><a href="/images/desktops/logo-1024.jpg" alt="1024 x 768" target="_blank">1024 x 768</a></li>
+			<li><a href="/images/desktops/logo-1280.jpg" alt="1024 x 768" target="_blank">1280 x 800</a></li>
+			<li><a href="/images/desktops/logo-1440.jpg" alt="1024 x 768" target="_blank">1440 x 900</a></li>
+			<li><a href="/images/desktops/logo-1680.jpg" alt="1024 x 768" target="_blank">1680 x 1050</a></li>
+			<li><a href="/images/desktops/logo-1920.jpg" alt="1024 x 768" target="_blank">1920 x 1200</a></li>
+		</ul>
+	</div>
+	<div class="dtp">
+		<img src="/images/dtp-ltBlue.png" alt="light blue desktop">
+		<ul>
+			<li><a href="/images/desktops/ltBlue-1024.jpg" alt="1024 x 768" target="_blank">1024 x 768</a></li>
+			<li><a href="/images/desktops/ltBlue-1280.jpg" alt="1024 x 768" target="_blank">1280 x 800</a></li>
+			<li><a href="/images/desktops/ltBlue-1440.jpg" alt="1024 x 768" target="_blank">1440 x 900</a></li>
+			<li><a href="/images/desktops/ltBlue-1680.jpg" alt="1024 x 768" target="_blank">1680 x 1050</a></li>
+			<li><a href="/images/desktops/ltBlue-1920.jpg" alt="1024 x 768" target="_blank">1920 x 1200</a></li>
+		</ul>
+	</div>
+	<div class="dtp">
+		<img src="/images/dtp-rdPlank.png" alt="red plank desktop">
+		<ul>
+			<li><a href="/images/desktops/rdPlank-1024.jpg" alt="1024 x 768" target="_blank">1024 x 768</a></li>
+			<li><a href="/images/desktops/rdPlank-1280.jpg" alt="1024 x 768" target="_blank">1280 x 800</a></li>
+			<li><a href="/images/desktops/rdPlank-1440.jpg" alt="1024 x 768" target="_blank">1440 x 900</a></li>
+			<li><a href="/images/desktops/rdPlank-1680.jpg" alt="1024 x 768" target="_blank">1680 x 1050</a></li>
+			<li><a href="/images/desktops/rdPlank-1920.jpg" alt="1024 x 768" target="_blank">1920 x 1200</a></li>
+		</ul>
+	</div>
+</div>
+<div class="standardblock">
+<h2>Download Hank Ringtones</h2>
+    <ul class="ringtones">
+        <li><a href="/audio/01saddleupr.m4r">Saddle Up</a></li>
+        
+        <li><a href="/audio/01worthlesscoyoteclassicalr.m4r">Worthless Coyote (Classical Version)</a></li>
+        <!--<li><a href="/audio/01myheart2r.m4r">My Heart</a></li>
+        <li><a href="/audio/01imrichr.m4r">I'm Rich!</a></li>
+        -->
+    </ul>
+</div>
+<div class="standardblock">
+<h2><a href="http://www.petliferadio.com/ontheroadep10.html">Hear an interview with the Author</a></h2>
+<p>Did you know John Erickson did an interview with Pet Life Radio?  You can listen to it by clicking the go button.<br>
+<a href="http://www.petliferadio.com/ontheroadep10.html" class="go">Go</a>
+</p>
+    <%= insert_content('Promo 1') %>
+    <%= insert_content_image('Promo 1') %>
+
+    <%= insert_content('Promo 2') %>
+
+<div class="forceblog">
+<h2>Security Force Updates</h2>
+
+	<% @posts.each do |post| %>
+
+	<h4>
+    	<%= link_to post.blog_title, post_link_path(post) %>
+	</h4>
+	<p class="date"><%= post.blog_postdate.strftime("%A, %B %d, %Y") %></p>
+	<div class="postbody">
+    <%= raw(short_post(post.blog_body)) %>
+	</div>
+
+<% end %>
+<% if @posts.count == 0 %>
+    Sorry, no posts available.
+<% end %>
+</div>
+</div>

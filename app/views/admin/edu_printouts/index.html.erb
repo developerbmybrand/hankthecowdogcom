@@ -1,0 +1,24 @@
+<h1>Listing Education Printouts</h1>
+
+<table cellpadding="10px">
+  <tr>
+    <th width="75%">Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @printouts.each do |printout| %>
+  <tr>
+    <td width="75%"><%= printout.printout_name %></td>
+    <td><%= link_to 'Show', [:admin, printout], :class => 'button2' %></td>
+    <td><%= link_to 'Edit', edit_admin_edu_printout_path(printout), :class => 'button2' %></td>
+    <td><%= link_to 'Destroy', [:admin, printout], :confirm => 'Are you sure?', :method => :delete, :class => 'button2' %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<div class="actions2">
+<%= link_to 'New Printout', new_admin_edu_printout_path, :class => 'button' %>
+</div>

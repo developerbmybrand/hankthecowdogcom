@@ -1,0 +1,18 @@
+<h1>Stage Plays</h1>
+<h3>Original plays featuring Hank the Cowdog.</h3>
+<div class="content"><p><img src="/images/stage-sm.jpg"  alt="Stage Performance" /></p>
+<p>Since 1983, Hank the Cowdog has been the star of one of America’s most popular series of humor books and books-on-cd. Now, he is moving to the stage and Maverick Books, Inc. is proud to offer a selection of plays for your theater, with original songs by John R. Erickson and the same wholesome entertainment that families have enjoyed in more than six million books.
+</p>
+<p>We invite you to browse through our selection of musical comedies. If you would like to have more information, contact our office at 806-435-7611, or email using the form on each Stage Play page. Send us your contact information (name, theater name, phone number and the play you're interested in reviewing), and we'll send you a perusal script.
+</p>
+<p>In addition to providing you with the script, a CD of the songs, and sheet music, Maverick Books will also provide your group with a great fund raising opportunity, selling Hank merchandise before and after the performance.</p>
+</div>
+<ul class="stageplays">
+<% @screenplays.each do |screenplay| %>
+  <li>
+    <h2><a href="/stageplays/<%= screenplay.id %>"><%= screenplay.screen_title %></a></h2>
+    <%= raw(screenplay.screen_desc) %> 
+    <a href="/stageplays/<%= screenplay.id %>" class="seemore">See More</a>
+  </li>
+<% end %>
+</ul>

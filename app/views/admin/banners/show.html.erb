@@ -1,0 +1,27 @@
+<h1>Banner</h1>
+
+<p>
+  <b>Banner Title:</b>
+  <%= @banner.banner_title %>
+</p>
+
+<p>
+  <b>Banner Link:</b>
+  <a href="<%= @banner.banner_link %>"><%= @banner.banner_link %></a>
+</p>
+
+<p>
+  <b>Banner Link:</b>
+  <br>
+  <%= image_tag(@banner.banner_image.thumb.url) if @banner.banner_image? %>
+</p>
+
+<p>
+  <b>Order Weight:</b>
+  <%= @banner.banner_sortweight %>
+</p>
+<div class="actions2">
+<%= link_to 'Edit', edit_admin_banner_path(@banner), :class => 'button2' %> 
+<%= link_to 'Back', admin_banners_path, :class => 'button2' %> 
+<%= link_to 'Delete', [:admin, @banner], :confirm => 'Are you sure?', :method => :delete, :class => 'button2' %>
+</div>

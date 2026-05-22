@@ -1,0 +1,28 @@
+<h1>Hank in the News</h1>
+
+<% @post.each do |post| %>
+<div class="newsblogpost">
+  <h3>
+      <%= link_to post.blog_title, post_link_path(post) %></h3>
+   <p class="postmeta"><%= post.blog_postdate.strftime("%A, %B %d, %Y") %>
+      <% unless post.blog_author.nil? || post.blog_author.empty? %>
+          | By <%= post.blog_author %>
+      <% end %>
+      <% unless current_auth.nil? %>
+          | <%= link_to 'Edit Post', edit_admin_blog_path(post.id) %>
+      <% end %>
+   </p>
+
+<div class="postbody">
+    <%= short_post(post.blog_body) %>
+</div>
+</div>
+<% end %>
+<% if @post.count == 0 %>
+    Sorry, no news available.
+<% end %>
+<div class="newsarchive">
+<h4>New Archives</h4>
+<p>You can find older news stories on our archives page.</p>
+<a href="newsarchive" class="seemore">See More</a>
+</div>

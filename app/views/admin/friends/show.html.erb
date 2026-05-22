@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @friend.friend_name %>
+</p>
+<p>
+  <b>Description:</b>
+  <%= raw(@friend.friend_desc) %>
+</p>
+<p>
+  <b>Popup Image:</b>
+  <br>
+  <%= image_tag(@friend.friend_image.url) if @friend.friend_image? %>
+</p>
+<p>
+  <b>Thumbnail Image:</b>
+  <br>
+  <%= image_tag(@friend.friend_image_thumb.url) if @friend.friend_image_thumb? %>
+</p>
+<div class="actions2">
+<%= link_to 'Edit', edit_admin_friend_path(@friend), :class => 'button2' %> 
+<%= link_to 'Back', admin_friend_path, :class => 'button2' %> 
+<%= link_to 'Delete', [:admin, @friend], :confirm => 'Are you sure?', :method => :delete, :class => 'button2' %>
+</div>

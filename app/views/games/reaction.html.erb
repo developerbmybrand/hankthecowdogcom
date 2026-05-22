@@ -1,0 +1,118 @@
+<% content_for :header do %>
+ <!-- ADDITIONAL PAGE HEADERS HERE -->
+<% end %>  
+<script language="JavaScript">
+
+<!--
+
+function rnd() {
+r1=new Date();
+num=Math.round(Math.abs(Math.sin(r1.getTime())*10000000))%5;
+return num;
+}
+
+function starter(){
+if(q==1){return}
+c=0;
+ad=0;
+da=0;
+setTimeout("spel()",1000+1000*rnd());
+document.ful.text8.value="wait…";
+}
+
+function slut(){
+if(da==1){return}
+if(ad==1){return}
+if(q==1){return}
+if(c==0){fusk()}
+if(c==0){return}
+da=1
+rak();
+}
+
+function rak(){
+slutTime=new Date();
+sltid=slutTime.getTime();
+tidpo=(sltid-stid)/1000
+if (ad==1)tidpo=2;
+tidtot=tidtot+tidpo;
+as="";if (tidtot<1)as="0"
+document.ful.text6.value="Total time: "+as+Math.round(tidtot*100)/100+" seconds"
+as="";if (tidpo<1)as="0"
+if(ad==0){
+if (k==1)document.ful.text1.value=" "+as+tidpo+" seconds"
+if (k==2)document.ful.text2.value=" "+as+tidpo+" seconds"
+if (k==3)document.ful.text3.value=" "+as+tidpo+" seconds"
+if (k==4)document.ful.text4.value=" "+as+tidpo+" seconds"
+if (k==5)document.ful.text5.value=" "+as+tidpo+" seconds"
+document.ful.text8.value="Push Start";
+}
+as="";if (tidtot<1)as="0"
+document.ful.text6.value=" "+as+Math.round(tidtot*100)/100+" seconds"
+as="";if (tidtot/k<1)as="0"
+document.ful.text7.value=" "+as+Math.round(tidtot*10000/(k*100))/100+" seconds"
+if(k>4){
+q=1
+if ((Math.round(tidtot*10000/(k*100))/100) <= .26)
+document.ful.text8.value="You got the job!";
+if (((Math.round(tidtot*10000/(k*100))/100) > .26) && ((Math.round(tidtot*10000/(k*100))/100) < .60))
+document.ful.text8.value="You would make a good ranch hand.";
+if (((Math.round(tidtot*10000/(k*100))/100) >= .60) && ((Math.round(tidtot*10000/(k*100))/100) < 1))
+document.ful.text8.value="You need some work";
+if ((Math.round(tidtot*10000/(k*100))/100) >= 1)
+document.ful.text8.value="What are you? A CAT?";
+}
+}
+
+function spel() {
+if (ad==1)return
+k=k+1
+c=1;
+startTime=new Date();
+stid=startTime.getTime();
+document.ful.text8.value="PUSH STOP!!!";
+}
+
+
+function fusk(){
+document.ful.text8.value="Too soon. 2 sec penalty. Push start!"
+ad=1
+stid=0;
+rak();
+}
+tidtot=0;
+k=0;
+q=0;
+ad=0;
+
+//-->
+
+</script>
+<h1>Reaction Speed Test</h1>
+<h3>Test your reflexes with this game of speed.</h3>
+
+<p>Think you are fast enough to be Head of Ranch Security? Click on Start and as soon as you are told, click on STOP. See how fast you can react, but don't click in too soon or you'll get a 2 second penalty. Try to match Hank's average time of .26 seconds.
+</p>
+<div id="reaction">
+<form name=ful>
+   
+
+<input name="text8" value="Push Start" class="instruct">
+<div class="speedtester">
+<input name="button" type="button" value="Start" onClick="starter()" class="start"><input name="button" type="button" value="STOP" onClick="slut()" class="stop">
+<input name="button" type="button" value="reset" onClick="location='/games/reaction/'" class="reset">
+</div>
+ <div class="results">
+      <label for="text1">Reaction Time 1:</label><input name="text1" id="text1" value="">
+      <label for="text2">Reaction Time 2:</label><input name="text2" id="text2" value="">
+      <label for="text3">Reaction Time 3:</label><input name="text3" id="text3" value="" >
+      <label for="text4">Reaction Time 4:</label><input name="text4" id="text4" value="" >
+      <label for="text5">Reaction Time 5:</label><input name="text5" id="text5" value="" >
+	<div class="finalresults">	</div>
+	<label for="text1">Total Time:</label><input name="text6" value="" >
+	<label for="text1">Average Time:</label><input name="text7" value="">
+	</div>
+
+</form>
+</div>
+<div><a href="/games/" class="goback">Go Back</a></div>

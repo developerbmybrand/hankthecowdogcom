@@ -1,0 +1,31 @@
+<h1>Listing Friends</h1>
+
+<% if @friends.count > 0 %>
+<div id="detailwin">  
+<table>
+  <tr>
+    <th width="35%">Name</th>
+    <th>Sort Weight</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @friends.each do |friend| %>
+  <tr>
+    <td width="35%"><%= friend.friend_name %></td>
+    <td><%= friend.friend_sortweight %></td>
+    <td><%= link_to 'Show', [:admin, friend], :class => 'button2' %></td>
+    <td><%= link_to 'Edit', edit_admin_friend_path(friend), :class => 'button2' %></td>
+    <td><%= link_to 'Destroy', [:admin, friend], :confirm => 'Are you sure?', :method => :delete, :class => 'button2' %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+<% else %>
+None yet.  Create a new one!      
+<% end %>
+<br />
+<div class="actions2">
+<%= link_to 'New Friend', new_admin_friend_path, :class => 'button' %>
+</div>

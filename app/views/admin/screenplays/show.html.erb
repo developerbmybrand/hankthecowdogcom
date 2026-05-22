@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= raw(@screenplay.screen_title) %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= raw(@screenplay.screen_desc) %>
+</p>
+
+<p>
+  <b>Image:</b>
+  <%= image_tag(@screenplay.screen_image.url) if @screenplay.screen_image? %>
+</p>
+
+<p>
+  <b>Characters:</b>
+  <%= raw(@screenplay.screen_characters) %>
+</p>
+
+<p>
+  <b>Story:</b>
+  <%= raw(@screenplay.screen_story) %>
+</p>
+
+<p>
+  <b>Songs:</b>
+  <%= raw(@screenplay.screen_songs) %>
+</p>
+
+<p>
+  <b>One Act Details:</b>
+  <%= raw(@screenplay.screen_oneact) %>
+</p>
+
+<p>
+  <b>Published:</b>
+  <%= @screenplay.screen_published? ? "Yes" : "No" %>
+</p>
+
+<div class="actions2"><%= link_to 'Edit', edit_admin_screenplay_path(@screenplay), :class => 'button2' %> 
+<%= link_to 'Back', admin_screenplays_path, :class => 'button2' %> 
+<%= link_to 'Delete', [:admin, @screenplay], :confirm => 'Are you sure?', :method => :delete, :class => 'button2' %>
+</div>

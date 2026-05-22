@@ -1,0 +1,47 @@
+<h1>Contact Us</h1>
+<h3>Use the form below to drop us a line.</h3>
+
+<%= form_for :contact do |f| %>
+  <% if @contact.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@contact.errors.count, "error") %> found on this page:</h2>
+
+      <ul>
+      <% @contact.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div style="color:green"><%= flash[:notice] %></div>
+<div class="contactform">
+  <p><%= f.label :name %>
+    <%= f.text_field :name %></p>
+  <p>
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </p>
+  <p>
+    <%= f.label :phone %>
+    <%= f.text_field :phone %>
+  </p>
+  <p>
+    <%= f.label :message %>
+    <%= f.text_area :message %>
+  </p>
+  <p>
+    <%= recaptcha_tags %>
+  </p>
+    <%= f.submit 'Send', :class => 'sendit' %>
+<% end %>
+</div>
+<div class="contactinfo">
+<p>Maverick Books<br />
+PO Box 549<br />
+Perryton, TX 79070
+</p>
+<p>Phone 806.435.7611</br>
+Fax 806.435.2410
+</p>
+</div>

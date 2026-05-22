@@ -1,0 +1,209 @@
+body { background-color: #fff; color: #333; }
+
+body, p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size:   13px;
+  line-height: 18px;
+  background: url(../images/bg-repeater.jpg);
+  color: #372508;
+  font-family: arial, helvetica, sans-serif;
+  width: 1150px;
+}
+.header {
+	width: 100%;
+	clear: both;
+	overflow: hidden;
+}
+.logoheader {
+	float: left;
+	width: 106px;
+	height: 106px;
+	margin: 15px 0 0 25px;
+	background: url(../images/sprite.png) -219px -245px;
+}
+.header h1 {
+	float: left;
+	width: 500px;
+	color: #BF4A1C;
+	font-family: "Courier New", Courier, monospace;
+	font-size: 42px;
+	margin: 50px 0 0 40px;
+}
+.leftnav {
+	float: left;
+	min-height: 600px;
+	width: 225px;
+}
+.leftnav ul {
+	width: 153px;
+	margin: 10px 0 0 20px;
+	padding: 0;
+}
+.leftnav ul li {
+	list-style: none;
+	padding: 2px 0 2px 10px;
+	font-family: "Courier New", Courier, monospace;
+	border-bottom: 1px dashed #6C4737;
+}
+.leftnav ul li:hover {
+	background: rgb(0, 0, 0) transparent;
+	/* RGBa with 0.6 opacity */
+	background: rgba(0, 0, 0, 0.1);
+}
+.leftnav ul li a {
+	text-decoration: none;
+	display: block;
+	padding: 5px 5px 5px 5px;
+	font-size: 14px;
+	text-transform: uppercase;
+	color: #BF4A1C;
+	font-weight: bold;
+}
+.content {
+	float: left;
+	width: 850px;
+}
+.content h1 {
+	font-family: "Courier New", Courier, monospace;
+}
+.content p {
+	width: 700px;
+}
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a { color: #BF4A1C; }
+a:visited { color: #a64419; }
+a:hover { color: #712d0f; }
+
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+#notice {
+  color: green;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+#detailwin {
+	width: 850px;
+	min-height: 350px;
+	overflow: auto;
+}
+#detailwin td, #detailwin th {
+	padding: 10px;
+}
+#detailwin th {	
+	text-align: left;
+	color: #9EB843;
+	text-transform: uppercase;
+	font-family: "Courier New", Courier, monospace;
+	border-bottom: 1px solid #6C4737;
+}
+#detailwin th a {
+	text-decoration: none;
+	color: #9EB843;
+}
+td {
+	border-bottom: 1px dashed #cabfb1;
+}
+a.button {
+	padding: 5px 10px;
+	font-size: 12px;
+	text-decoration: none;
+	color: #fff;
+	text-align: center;
+	background: #bf4a1c;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px; /* future proofing */
+	-khtml-border-radius: 6px; /* for old Konqueror browsers */
+}
+a.button:hover {
+	background: #ed5e26;
+}
+div.actions2 {
+	overflow: hidden;
+	padding: 10px 0 40px 0;
+}
+a.button2 {
+	padding: 3px 5px;
+	font-size: 12px;
+	text-decoration: none;
+	color: #fff;
+	text-align: center;
+	background: #c19e62;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px; /* future proofing */
+	-khtml-border-radius: 4px; /* for old Konqueror browsers */
+}
+a.button2:hover {
+	background: #d4ae6d;
+}
+.defaultSkin table.mceLayout {
+	border: 0;
+	border-left: 1px solid #e8dcc7 !important;
+	border-right: 1px solid #e8dcc7 !important;
+} 
+.defaultSkin table.mceLayout tr.mceLast td {
+	border-bottom: 1px solid #e8dcc7 !important;
+}
+.defaultSkin td.mceToolbar  {
+	background: #e8dcc7 !important;
+}
+.defaultSkin table {
+	background: #e8dcc7 !important;
+}
+.defaultSkin .mceButton {
+	border: none !important;
+}
+defaultSkin table.mceLayout tr.mceFirst td {
+	border-top: 1px solid #e8dcc7 !important;
+}
+.defaultSkin .mceIframeContainer {
+	border-top: 1px solid #e8dcc7 !important;
+	border-bottom: 1px solid #e8dcc7 !important;
+}
+td.title, th.title {
+	width: 25%;
+}
+.field input[type="text"], .field input[type="password"] {
+	width: 200px;
+	font-size: 14px;
+	padding: 2px;
+	
+}

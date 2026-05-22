@@ -1,0 +1,31 @@
+<h1>Content</h1>
+
+<% if @contents.count > 0 %>
+<div id="detailwin">  
+<table>
+  <tr>
+    <th width="35%"><%= link_to 'Page', '?sort=by_page' %></th>
+    <th width="35%"><%= link_to 'Title', '?sort=by_title' %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @contents.each do |content| %>
+  <tr>
+    <td width="35%"><%= TypeContentPage.find(content.type_content_page_id).type_name %></td>
+    <td width="35%"><%= content.content_title %></td>
+    <td><%= link_to 'Show', [:admin, content], :class => 'button2' %></td>
+    <td><%= link_to 'Edit', edit_admin_content_path(content), :class => 'button2' %></td>
+    <td><%= link_to 'Delete', [:admin, content], :confirm => 'Are you sure?', :method => :delete, :class => 'button2' %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+<% else %>
+None yet.  Create a new one!    
+<% end %>
+<br />
+<div class="actions2">
+<%= link_to 'New Content', new_admin_content_path, :class => 'button' %>
+</div>

@@ -1,0 +1,8 @@
+<div class="popframe">
+<%= image_tag(@friend.friend_image.url) if @friend.friend_image? %>
+<h1><%= @friend.friend_name %></h1>
+</div>
+<div class="poptext">
+<%= raw(@friend.friend_desc) %>
+</div>
+<a href="/friends/" class="goback">Go Back</a>

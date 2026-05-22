@@ -1,0 +1,185 @@
+.l-rotator {
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    position: relative;
+    width: 881px !important;
+    height: 287px !important;
+    overflow: hidden;
+}
+.l-rotator a { outline: none }
+.l-rotator .screen {
+    position: relative;
+    top: 0;
+    left: 250px;
+    width: 600px;
+    height: 300px;
+    overflow: hidden;
+}
+.l-rotator .main-img {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    border: 0;
+}
+.l-rotator .textbox {
+    position: absolute;
+    z-index: 4;
+    overflow: hidden;
+    visibility: hidden;
+}
+.l-rotator .inner-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #FFF;
+    filter: alpha(opacity=70);
+    opacity: .7;
+    z-index: 0;
+}
+.l-rotator .inner-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    color: #FFF;
+    z-index: 1;
+}
+.l-rotator #timer {
+    position: absolute;
+    left: 0;
+    height: 4px;
+    background-color: #FFF;
+    filter: alpha(opacity=50);
+    opacity: .5;
+    z-index: 5;
+    visibility: hidden;
+}
+.l-rotator .cpanel {
+    position: absolute;
+    margin: 5px;
+    z-index: 6;
+    visibility: hidden;
+}
+.l-rotator #play-btn {
+    position: relative;
+    float: left;
+    width: 22px;
+    height: 22px;
+    background: #000 url(../images/play_pause.png) 0 0 no-repeat;
+    background: rgba(0,0,0,.7) url(../images/play_pause.png) 0 0 no-repeat;
+    cursor: pointer;
+}
+.l-rotator .pause { background-position: 0 -22px !important }
+.l-rotator #num-info {
+    position: relative;
+    float: left;
+    height: 22px;
+    line-height: 22px;
+    padding: 0 4px;
+    text-align: center;
+    color: #FFF;
+    background: #000;
+    background: rgba(0,0,0,.7);
+}
+.l-rotator #preloader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 34px;
+    height: 34px;
+    margin-top: -17px;
+    margin-left: -17px;
+    z-index: 7;
+    background: transparent url(../images/loader.gif) no-repeat center;
+}
+.l-rotator .thumbnails {
+    position: absolute;
+    top: 0;
+    left: 644px !important;
+    width: 250px;
+    height: 290px;
+    z-index: 10;
+}
+.l-rotator .thumbnails ul {
+    list-style: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 999999px;
+    margin: 0;
+    padding: 0;
+}
+.l-rotator .thumbnails li {
+    position: relative;
+    display: block;
+    float: left;
+    clear: both;
+}
+.l-rotator .thumbnails li a { display: none }
+.l-rotator .thumbnails li div {
+    display: none;
+    color: #FFF;
+}
+.l-rotator #right-arrow,
+.l-rotator #left-arrow {
+    position: relative;
+    display: block;
+    float: left;
+    width: 12px;
+}
+.l-rotator .thumbnails .thumb {
+    position: relative;
+    display: block;
+    float: left;
+    cursor: pointer;
+    width: 240px;
+    color: #000;
+    overflow: hidden;
+}
+.l-rotator .thumb img {
+    display: block;
+    float: left;
+    width: 220px;
+    height: 99px;
+}
+.l-rotator .thumb p {
+    display: block;
+    overflow: hidden;
+    margin: 0;
+}
+.l-rotator .thumbnails li.selected .thumb {
+    color: #FFF;
+    border-left: none;
+    border-right: none;
+    cursor: default;
+}
+.l-rotator .thumbnails li.item-over .thumb { }
+.l-rotator #scrollbar {
+    position: relative;
+    width: 6px;
+    height: 100%;
+    overflow: hidden;
+    background-color: #4d3612;
+	display: block !important;
+	opacity: 1 !important;
+    right: -231px !important;
+    left: auto !important;
+}
+.l-rotator #knob {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px;
+	background: url(../images/handle.gif) center 20px no-repeat;
+}
+.l-rotator .block,
+.l-rotator .vpiece,
+.l-rotator .hpiece {
+    position: absolute;
+    z-index: 2;
+    display: none;
+}

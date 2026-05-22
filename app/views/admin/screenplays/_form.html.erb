@@ -1,0 +1,57 @@
+<%= form_for([:admin, @screenplay], :html => {:multipart => true}) do |f| %>
+  <% if @screenplay.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@screenplay.errors.count, "error") %> prohibited this screenplay from being saved:</h2>
+
+      <ul>
+      <% @screenplay.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    Title<br />
+    <%= f.text_field :screen_title %>
+  </div> 
+  <div class="field">
+    Description<br />
+    <%= f.text_area :screen_desc, :class => 'tinymce', :cols => "80", :rows => "5" %>
+  </div>
+  <div class="field">
+    Image<br />
+    <%= image_tag(@screenplay.screen_image.url) if !@screenplay.screen_image.nil? && @screenplay.screen_image? %>
+    <br>
+    <%= f.file_field :screen_image %>
+    <%= f.hidden_field :screen_image_cache %>
+  </div>  
+  <div class="field">
+    Characters<br />
+    <%= f.text_area :screen_characters, :class => 'tinymce', :cols => "80", :rows => "5" %>
+  </div>
+  <div class="field">
+    Story<br />
+    <%= f.text_area :screen_story, :class => 'tinymce', :cols => "80", :rows => "5" %>
+  </div>
+  <div class="field">
+    Songs<br />
+    <%= f.text_area :screen_songs, :class => 'tinymce', :cols => "80", :rows => "5" %>
+  </div>
+  <div class="field">
+    One Act Details<br />
+    <%= f.text_area :screen_oneact, :class => 'tinymce', :cols => "80", :rows => "5" %>
+  </div>
+  <div class="field">
+    Order Weight<br />
+    <%= f.select :screen_sortweight, sortweights %>
+  </div>  
+  <div class="field">
+    Published?<br />
+    <%= f.check_box :screen_published %>
+  </div>  
+
+  <div class="actions">
+    <%= f.submit 'Update Stage Play' %>
+  </div>
+<% end %>

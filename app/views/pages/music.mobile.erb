@@ -1,0 +1,49 @@
+<h1>Hank's Music</h1>
+<p class="subtitle">Hank the Cowdog’s "Greatest Hits" bring together the music from the audiobooks you know and love! This wonderful collection of hilarious and sometimes touching songs is unmatched. Where else can you learn about coyote philosophy, buzzard lore, why your dog is protecting an old corncob, or how bugs compare to hot dog buns, and much more!</p>
+<ul class="music-albums">
+  <li><img src="images/gh-album-1.jpg" alt="Hank's Greatest Hits Volume 1"/>
+    <p><a href="https://itunes.apple.com/us/album/hank-cowdogs-greatest-hits/id918522114" target="_blank">iTunes</a> |
+      <a href="http://shop.hankthecowdog.com/Hanks-Greatest-Hits-Vol-1-2-CDs/productinfo/791/">Hank's Store</a>
+    </p>
+  </li>
+  <li><img src="images/gh-album-2.jpg" alt="Hank's Greatest Hits Volume 2"/>
+    <p><a href="https://itunes.apple.com/us/album/hank-cowdogs-greatest-hits/id918618833" target="_blank">iTunes</a> |
+      <a href="http://shop.hankthecowdog.com/Hanks-Greatest-Hits-Vol-1-2-CDs/productinfo/791/">Hank's Store</a>
+    </p>
+  </li>
+  <li><img src="images/gh-album-3.jpg" alt="Hank's Greatest Hits Volume 3"/>
+    <p><a href="https://itunes.apple.com/us/album/hank-cowdogs-greatest-hits/id918809167" target="_blank">iTunes</a> |
+      <a href="http://shop.hankthecowdog.com/Hanks-Greatest-Hits-Vol-3-4-CDs/productinfo/792/">Hank's Store</a>
+    </p>
+  </li>
+  <li><img src="images/gh-album-4.jpg" alt="Hank's Greatest Hits Volume 4"/>
+    <p><a href="https://itunes.apple.com/us/album/hank-cowdogs-greatest-hits/id919370434" target="_blank">iTunes</a> |
+      <a href="http://shop.hankthecowdog.com/Hanks-Greatest-Hits-Vol-3-4-CDs/productinfo/792/">Hank's Store</a>
+    </p>
+  </li>
+  <li><img src="images/gh-album-5.jpg" alt="Hank's Greatest Hits Volume 5"/>
+     <p><a href="https://itunes.apple.com/us/album/hank-cowdogs-greatest-hits/id921948849">iTunes</a>
+    </p>
+  </li>
+</ul>
+  <h2 class="ringtones">Ringtones</h2>
+
+  <ul class="tracks tones">
+
+    <% @ringtones.each do |ringtone| %>
+
+        <li>
+          <p class="songtitle"><%= ringtone.title %></p>
+          <a href="<%= ringtone.ringtone_audio.url %>" class="dwnld">Download</a>
+        </li>
+
+    <% end %>
+
+  </ul>
+
+
+</div>
+
+<div class="music-bg"></div>
+
+

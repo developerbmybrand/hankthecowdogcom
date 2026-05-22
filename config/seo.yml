@@ -1,0 +1,42 @@
+# Per-page SEO from Hank_The_Cow_Dog_Meta_Title_and_Description.docx
+# Keys are request paths (shop.hankthecowdog.com URLs are a separate store).
+
+"/":
+  title: "Hank the Cowdog Books | Original Kids Cowboy Story Series"
+  description: "Shop Hank the Cowdog books, the original cowboy story series for kids packed with humor, adventure, and fun illustrated reading experiences."
+
+"/books":
+  title: "Get the Best Funny Adventure Books for Kids | Hank the Cowdog"
+  description: "Explore funny adventure books for kids with Hank the Cowdog series. Filled with humor, cowboy adventures & illustrated stories for fun reading."
+
+"/fanzone":
+  title: "Hank the Cowdog Fun Zone | Free Online Kids Games & Puzzles"
+  description: "Discover safe and fun online games for kids including free puzzle games and memory match activities. Perfect for learning, focus, and entertainment."
+
+"/author":
+  title: "Meet the Author Behind Hank the Cowdog | John R. Erickson"
+  description: "Find out who wrote Hank the Cowdog and explore the story of author John R. Erickson, the creative mind behind these funny and adventurous kids' books."
+
+"/contact":
+  title: "Contact Us | Hank the Cowdog Official Website Support"
+  description: "Get in touch with the Hank the Cowdog team for support, questions, and inquiries about books, fan content, and the official website."
+
+"/retailers":
+  title: "Hank the Cowdog Books Retailers | Find Official Book Stores"
+  description: "See official retailers for Hank the Cowdog books. Buy kids cowboy adventure stories online or from trusted bookstores and sellers."
+
+"/bookaudio":
+  title: "Hank the Cowdog Audio Books | Listen to Cowboy Stories"
+  description: "Enjoy Hank the Cowdog audiobook samples featuring funny cowboy adventures, mystery stories, and engaging audio tales for kids."
+
+"/news":
+  title: "Hank the Cowdog News | Updates, Stories & Book Announcements"
+  description: "Read the latest Hank the Cowdog news, including book announcements, interviews, reviews, and updates from the beloved cowboy dog series."
+
+"/concerts":
+  title: "Live Hank the Cowdog Concerts | Kids Story & Songs"
+  description: "Enjoy Hank the Cowdog live concerts with author readings, music, and storytelling. A fun educational experience for kids and schools."
+
+"/stageplays":
+  title: "Hank the Cowdog Stage Plays | School & Theater Productions"
+  description: "Browse Hank the Cowdog stage plays for schools and theaters. Musical comedies with scripts, songs, and wholesome family entertainment."

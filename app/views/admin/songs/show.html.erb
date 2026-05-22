@@ -1,0 +1,25 @@
+<p>
+  <b>Title:</b>
+  <%= @song.title %>
+</p>
+
+<p>
+  <b>Arist:</b>
+  <%= @song.artist %>
+</p>
+
+<p>
+  <b>Song file:</b>
+  <a href="<%= @song.song_audio %>">Download</a>
+</p>
+
+<p>
+  <b>Store URL:</b>
+  <a href="<%= @song.store_link_url %>">Link</a>
+</p>
+
+<div class="actions2">
+<%= link_to 'Edit', edit_admin_song_path(@song), :class => 'button2' %> 
+<%= link_to 'Back', admin_songs_path, :class => 'button2' %> 
+<%= link_to 'Delete', [:admin, @songs], :confirm => 'Are you sure?', :method => :delete, :class => 'button2' %>
+</div>

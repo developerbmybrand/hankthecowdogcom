@@ -1,0 +1,272 @@
+.credits {
+	padding: 0 0 13px 13px;
+}
+#content {
+	width: 320px;
+	padding: 0;
+	overflow: hidden;
+	background: url(../images/320/bg-texture.jpg) repeat-x top; 
+}
+#content h1 {
+	margin: 13px 0 0 13px;
+}
+#content h4 {
+	margin: 0 0 0 13px;
+}
+@-webkit-keyframes highlight {
+	0% { color: #999; }
+	50% { color: #fff; }
+	100% { color: #999; }
+}
+.game {
+	
+	margin: 15px 0 15px 0;
+	padding: 0;
+		
+}
+
+.information {
+	padding: 40px 20px 20px;
+	z-index: 20;
+}
+
+.gameboard {
+	width: 600px;
+	height: 600px;
+	
+	margin: 0 auto 20px;
+}
+
+.gameboard {
+	position: relative;
+}
+
+	.gameboard-reset {
+		right: -600px;
+	}
+	
+	.gameboard ul {
+		width: 600px;
+		height: 600px;
+		margin: 0;
+		-webkit-transition-property: all;
+		-webkit-transition-duration: 0.5s;
+		
+		padding: 20px 0 0 20px;
+		
+		background: #e3d3b8;
+		
+		border-radius: 20px;
+		-webkit-border-radius: 20px;
+		-moz-border-radius: 20px;
+		
+		/*box-shadow: rgba(0,0,0,0.6) 0 0 2px;
+		-webkit-box-shadow: rgba(0,0,0,0.6) 0 0 2px;
+		-moz-box-shadow: rgba(0,0,0,0.6) 0 0 2px; */
+	}
+	
+
+/* -- start media -- */
+
+	body,
+	.page {
+		margin: 0 !important;
+		padding: 0 !important;
+	}
+	
+	.page {
+		overflow: hidden;
+	}
+
+	.gameboard {
+		width: 310px;
+		height: 310px;
+		margin: 0 auto 10px;
+		
+		overflow: visible;
+	}
+	
+	.gameboard ul {
+		margin: -150px -156px;
+	
+		-webkit-transform: scale(0.5);
+		-moz-transform: scale(0.5);
+		
+		/*
+		-moz-transform-origin: 0 0;
+		-webkit-transform-origin: 0 0; */
+	}
+	
+	.gameboard img {
+		display: none !important;
+	}
+	
+	.gameboard .win {
+		margin-top: -20px;
+	}
+	
+	footer {
+		display: none;
+	}
+	
+	.gameboard-alt1 ul {
+		-webkit-transform: scale(0.5) rotate(90deg) !important;
+	}
+	
+	.gameboard-alt2 ul {
+		-webkit-transform: scale(0.5) rotate(-90deg) !important;
+	}
+
+
+
+/* @group Game Elements */
+
+
+.card {
+	position: relative;
+
+	width: 80px;
+	height: 80px;
+	
+	margin: 0 20px 20px 0;
+	
+	float: left;
+	display: inline;
+	
+	-webkit-perspective: 500;
+	-webkit-transition-property: all;
+	-webkit-transition-duration: 0.5s;
+}
+
+	.card span {
+		position: absolute;
+		top: 0;
+		left: 0;
+		
+		display: block;
+		
+		width: 80px;
+		height: 80px;
+		
+		-webkit-transition-property: transform;
+		-webkit-transition-duration: 0.3s;
+		-webkit-transition-timing-function: ease-out;
+		
+		-webkit-backface-visibility: hidden;
+		-webkit-transform-style: preserve-3d;
+		
+		border-radius: 12px;
+		-webkit-border-radius: 12px;
+		-moz-border-radius: 12px;
+		
+		box-shadow: #000 0 1px 2px;
+		-webkit-box-shadow: #000 0 1px 2px;
+		-moz-box-shadow: rgba(0,0,0,0.5) 0 1px 2px;
+	}
+	.card span {
+		-webkit-transform: rotateY(0deg);
+		
+		background: #fff url(../images/games/cardback_02.png) no-repeat 50% 50%;
+		-webkit-background-size: 80px 80px;
+		
+		z-index: 900;
+	}
+	
+		.epic-win .card span {
+			background-image: url(../images/games/cardback_win2.png);
+		}
+	
+	.card span.back {
+		-webkit-transform: rotateY(-180deg);
+		
+		background: #fff url(../images/games/card01.png) no-repeat 50% 50%;
+		
+		z-index: 800;
+	}
+
+	.card-selected span {
+		-webkit-transform: rotateY(180deg);
+		
+		height: 98px;
+		width: 98px;
+		
+		top: -9px;
+		left: -9px;
+		
+		-webkit-background-size: 98px 98px;
+		
+		border-radius: 14px;
+		-webkit-border-radius: 14px;
+		
+		box-shadow: #333 0 2px 4px;
+		-webkit-box-shadow: #333 0 2px 4px;
+	}
+	
+	.card-selected span.back {
+		-webkit-transform: rotateY(0deg);
+		
+		z-index: 1000;
+	}
+	
+	.card-alt span {
+		-webkit-transform: rotateX(0deg);
+	}
+	
+	.card-alt span.back {
+		-webkit-transform: rotateX(-180deg);
+	}
+	
+	.card-alt.card-selected span {
+		-webkit-transform: rotateX(180deg);
+	}
+	
+	.card-alt.card-selected span.back {
+		-webkit-transform: rotateX(0);
+	}
+	
+	.card-1 span.back { 	background-image: url(../images/games/card01.png); }
+	.card-2 span.back { 	background-image: url(../images/games/card02.png); }
+	.card-3 span.back { 	background-image: url(../images/games/card03.png); }
+	.card-4 span.back { 	background-image: url(../images/games/card04.png); }
+	.card-5 span.back { 	background-image: url(../images/games/card05.png); }
+	.card-6 span.back { 	background-image: url(../images/games/card06.png); }
+	.card-7 span.back { 	background-image: url(../images/games/card07.png); }
+	.card-8 span.back { 	background-image: url(../images/games/card08.png); }
+	.card-9 span.back { 	background-image: url(../images/games/card09.png); }
+	.card-10 span.back { 	background-image: url(../images/games/card10.png); }
+	.card-11 span.back { 	background-image: url(../images/games/card11.png); }
+	.card-12 span.back { 	background-image: url(../images/games/card12.png); }
+	
+	.gameboard-alt1 ul {
+		-webkit-transform: rotate(90deg);
+	}
+	
+		.gameboard-alt1 ul .card {
+			-webkit-transform: rotate(-90deg);
+		}
+	
+	.gameboard-alt2 ul {
+		-webkit-transform: rotate(-90deg);
+	}
+		
+		.gameboard-alt2 ul .card {
+			-webkit-transform: rotate(90deg);
+		}
+		
+	.gameboard .win {
+		width: 300px;
+		height: 40px;
+		
+		position: absolute;
+		top: 50%;
+		right: 0;
+		
+		display: none;
+		
+		-webkit-animation-name: highlight;
+		-webkit-animation-duration: 0.5s;
+		-webkit-animation-iteration-count: infinite;
+		
+		text-shadow: rgba(0,0,0,0.5) 0 -1px 0;
+		-webkit-text-shadow: rgba(0,0,0,0.5) 0 -1px 0;
+	}

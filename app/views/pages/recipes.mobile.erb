@@ -1,0 +1,14 @@
+<h1>Recipes</h1>
+<h4>From the Kitchen of Sally May.</h4>
+
+
+<ul class="recipes">
+<% @recipes.each do |recipe| %>
+	<a href="/recipes/<%= recipe.id %>">
+	<li>
+			<h3><%= recipe.recipe_title %></h3>
+			<p><%= recipe.recipe_subtitle %></p>
+	</li></a>
+<% end %>
+</ul>
+

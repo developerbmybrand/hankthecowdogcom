@@ -1,0 +1,24 @@
+<h1>Listing Ringtones</h1>
+
+<table cellpadding="10px">
+  <tr>
+    <th width="75%">Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @ringtones.each do |ringtone| %>
+  <tr>
+    <td width="75%"><%= ringtone.title %></td>
+    <td><%= link_to 'Show', [:admin, ringtone], :class => 'button2' %></td>
+    <td><%= link_to 'Edit', edit_admin_ringtone_path(ringtone), :class => 'button2' %></td>
+    <td><%= link_to 'Destroy', [:admin, ringtone], :confirm => 'Are you sure?', :method => :delete, :class => 'button2' %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<div class="actions2">
+<%= link_to 'New Ringtone', new_admin_ringtone_path, :class => 'button' %>
+</div>

@@ -1,0 +1,32 @@
+<h1>Newsletters</h1>
+
+<% if @newsletters.count > 0 %>
+<table cellpadding="10px">
+  <tr>
+    <th width="35%">Name</th>
+    <th width="35%">Date</th>
+    <th>Published</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @newsletters.each do |newsletter| %>
+  <tr>
+    <td width="35%"><%= newsletter.newsletter_name %></td>
+    <td width="35%"><%= newsletter.newsletter_date.strftime("%A, %B %d, %Y") %></td>
+    <td><%= newsletter.newsletter_published? ? "Yes" : "No" %></td>
+    <td><%= link_to 'Show', [:admin, newsletter], :class => 'button2' %></td>
+    <td><%= link_to 'Edit', edit_admin_newsletter_path(newsletter), :class => 'button2' %></td>
+    <td><%= link_to 'Destroy', [:admin, newsletter], :confirm => 'Are you sure?', :method => :delete, :class => 'button2' %></td>
+  </tr>
+<% end %>
+</table>
+<% else %>
+None yet.  Create a new one!
+<% end %>
+
+<br />
+<div class="actions2">
+<%= link_to 'New Newsletter', new_admin_newsletter_path, :class => 'button' %>
+</div>

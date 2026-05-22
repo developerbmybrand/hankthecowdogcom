@@ -1,0 +1,33 @@
+<h1>Recipes</h1>
+
+<% if @recipes.count > 0 %>
+<div id="detailwin">  
+<table>
+  <tr>
+    <th width="45%">Title</th>
+    <th>Sort Weight</th>
+    <th>Published?</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @recipes.each do |recipe| %>
+  <tr>
+    <td width="45%"><%= recipe.recipe_title %></td>
+    <td><%= recipe.recipe_sortweight %></td>
+    <td><%= recipe.recipe_published? ? "Yes" : "No" %></td>
+    <td><%= link_to 'Show', [:admin, recipe], :class => 'button2' %></td>
+    <td><%= link_to 'Edit', edit_admin_recipe_path(recipe), :class => 'button2' %></td>
+    <td><%= link_to 'Destroy', [:admin, recipe], :confirm => 'Are you sure?', :method => :delete, :class => 'button2' %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+<% else %>
+None yet.  Create a new one!        
+<% end %>
+
+<br />
+
+<%= link_to 'New Recipe', new_admin_recipe_path, :class => 'button' %>

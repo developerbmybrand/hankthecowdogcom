@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title><%= content_for?(:title) ? yield(:title) : seo_title %></title>
+
+<meta charset="utf-8">
+<meta name="description" content="<%= content_for?(:meta_description) ? yield(:meta_description) : seo_description %>">
+<%= render 'shared/google_tags' %>
+<%= render 'shared/canonical' %>
+<meta name="author" content="">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<!-- Facebook Tags -->
+<meta property="og:title" content="<%= content_for?(:title) ? yield(:title) : seo_title %>"/>
+<meta property="og:type" content="book"/>
+<meta property="og:image" content="<%= site_host_url('/images/320/logo.png') %>"/>
+<meta property="og:url" content="<%= canonical_url %>"/>
+<meta property="og:site_name" content="Hank the Cowdog – Humorous Children's Mystery Book Series"/>
+<meta property="og:description" content="<%= content_for?(:meta_description) ? yield(:meta_description) : seo_description %>"/>
+<meta property="fb:app_id" content="253550721366694"/>
+
+<%= stylesheet_link_tag("mobile") %>
+<%= javascript_include_tag "jquery.easing" %>
+<%= csrf_meta_tag %>
+
+<%= yield :head %>
+
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon-precomposed" href="images/320/icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Feed Title" href="/blog.rss" />
+<link href="https://fonts.googleapis.com/css?family=Kameron:400,700" rel="stylesheet" type="text/css">
+
+<%= yield :header %>
+
+</head>
+<body>
+
+    <div class="scene">
+	<a href="/" class="logo"><img src="/images/320/logo.png" alt="hank the cowdog"></a>
+	</div>
+
+	<div id="content">
+
+            <%= yield %>
+
+	</div><!--/content-->
+	<div class="footer">
+		<p>Copyright &copy; 2018, Maverick Books, Inc. <a href="/fullsite">View full website</a></p>
+	</div>
+</body>
+</html>

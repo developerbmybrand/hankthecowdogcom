@@ -1,0 +1,30 @@
+<script language="javascript">
+$(document).ready(function() {
+	$('.frienddetailclose').click(function () {
+		$('#frienddetail').slideUp();	
+	});
+	$('.frienddetailback').click(function () {
+		$('#frienddetail').slideUp();	
+	});
+});
+</script>
+
+<h1>The Ranch Gang</h1>
+<h3>Meet Hank and Friends</h3>
+<div class="content">
+	
+	<div id="frienddetail">
+	<a href="javascript:" class="frienddetailback">Go Back</a>
+		<div id="friendimage"><img src="#" alt="Friend"/></div>
+		<h2 id="friendname"></h2>
+		<div id="frienddesc"></div>
+		<a href="javascript:" class="frienddetailclose">Close</a>
+	</div>
+	
+	<ul class="friends">
+		<% @friends.each do |friend| %>
+		<li><a href="javascript:" onclick="getdetail('<%= friend.friend_slug %>');" class="colorboxarea"><%= image_tag(friend.friend_image_thumb.url) if friend.friend_image_thumb? %></a></li>
+		<% end %>		
+	</ul>
+</div>
+<div class="top"><a href="#top">back to top</a></div>	

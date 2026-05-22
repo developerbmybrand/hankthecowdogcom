@@ -1,0 +1,189 @@
+<div id="outer">
+	<div class="header">
+		<div id="clouds1"></div>
+		<div id="clouds2"></div>
+        <div class="grass">
+            <div class="left-grass"></div>
+            <div class="right-grass"></div>
+        </div>
+<!--
+        <div class="left-grass-short"></div>
+        <div class="right-grass-short"></div>
+-->
+        <div class="scene">
+            <div class="scene-l"></div>
+            <div class="scene-r"></div>
+        </div>
+<!--         <div class="scene-clouds"></div> -->
+	</div>
+	<div id="top">
+		<div class="topinner">
+			<div class="topsocial"><div class="fb-like" data-href="https://www.hankthecowdog.com" data-send="false" data-layout="button_count" data-width="90" data-show-faces="false" data-font="arial"></div></div>
+			<div><h1 class="logo"><a href="/">Hank the Cowdog</a></h1></div>
+			<div class="search"><label for="topsearch">search the website</label><input type="text" id="topsearch" class="topsearch"><input type="submit" id="topsearchgo" class="go"></div>
+			<div class="nav">
+				<ul>
+					<li class="books"><a href="/books">Books<br /><span>The Collection</span></a></li>
+					<li class="fans"><a href="/fanzone">Fan Zone<br /><span>Fun &amp; Games</span></a></li>
+					<li class="author"><a href="/author">Author<br /><span>Meet the Creator</span></a></li>
+					<li class="store"><a href="<%= Settings.store_url_base %>">Store<br /><span>Books &amp; More</span></a></li>
+				</ul>
+			</div>
+			<div class="slider">
+				<div class="slidertop">				
+			        <div class="l-rotator">
+			            <div class="screen">
+			            	<noscript>
+			                	<!-- placeholder image when javascript is off -->
+			                    <img src="images/banner1.jpg" alt=""/>
+			              	</noscript>
+			          	</div>
+			            <div class="thumbnails">
+			                <ul>
+                              <% @banners.each do |banner| %>
+			                    <li>
+			                        <div class="thumb">
+                                        <%= image_tag(banner.banner_image.thumb.url) if banner.banner_image? %>
+			                        </div>
+			                        <a href="<%= banner.banner_image.url %>"></a>
+			                        <a href="<%= banner.banner_link %>"></a>
+			                    </li>
+                              <% end %>
+			                </ul>
+			            </div>     
+			        </div><!-- End .l-rotator -->				
+				</div><!-- End .slidertop -->
+
+				<div class="sliderlegs"></div>
+			</div>
+		</div><!--/topinner-->
+	</div><!--/top-->
+			<div class="rope"></div><!--/cwrope-->
+	<div id="content">
+		<div class="contentwrapbottom">
+		<div class="contentwraptop">
+		<div class="contentinner">
+			<div class="left">
+				<div class="boardsigns">
+					<ul>
+						<li class="games"><a href="/games">Games - Come play with Hank &amp; Pals</a></li>
+						<li class="books"><a href="/books">Books - Browse the entire Hank Catalog</a></li>
+						<li class="friends"><a href="/friends">Friends - Get to know the ranch gang</a></li>
+					</ul>
+				</div>
+				<div class="leftleft">
+					<div class="blogfeed">
+						<h3>From the Blog</h3>
+						<div class="blogfeedlist">
+	                        <% @posts.each do |post| %>
+	                        <div class="itemblock">
+	                            <div class="date"><%= post.blog_postdate.strftime("%b") %><br /><span><%= post.blog_postdate.strftime("%d") %></span></div>
+	                            <p><a href="/blog/<%= post.blog_slug %>"><%= post.blog_title %></a></p>
+	                        </div>                        
+	                        <% end %>
+							<a class="visitblog" href="/blog">Visit the Blog</a>
+						</div>
+					</div>
+					<div class="survey">
+						<h3>Hank's Survey</h3>
+						<p>We'd love to know what you think!</p>
+						<a href="http://www.surveymonkey.com/hankthecowdogsurvey" target="_blank" class="goshort">Go</a>
+					</div><!--Survey Ends-->
+					<a href="/educational">
+						<div class="educational">
+						
+						<h3>Teacher's<br>
+						Corner</h3>
+						<p>Download fun activity guides,<br> discussion questions and more.</p>
+						
+					</div></a>
+					<div class="homerecipes">
+						<h3>Sally May's Recipes</h3>
+						<div class="pie"></div>
+						<div class="recipesguts"><p>Discover delicious recipes from Sally May herself.</p>
+						<a href="/recipes" class="goshort">Go</a>				
+						</div>
+						
+					</div>
+					<br>
+				</div><!--/leftleft-->
+					<div class="musicpage">
+					<a href="/music" class="join">More</a>
+					<div class="musicguts">
+						<h3>Hank's Music</h3>
+						<p>Free ringtones, music and more!</p>
+					</div>
+					
+				</div>
+				<div class="officialshop">
+				<a href="<%= Settings.store_url_base %>" class="join">Let's Go</a>
+					<div class="shopguts">
+						<h3>Official Shop</h3>
+						<p>Find books, audio, toys and more!</p>
+					</div>
+					
+				</div>
+				<div class="securityforce">
+					<a href="/securityforce" class="join">Join</a>
+					<div class="securityguts">
+						<h3>Join Hank's Security Force</h3>
+						<p>Get the activity letter and other cool stuff.</p>
+					</div>
+					
+					
+				</div>
+				
+				
+			</div><!--/left-->
+			<div class="right">
+				<div class="socialstack">
+					<div class="socialitem">
+		            <a href="http://www.facebook.com/pages/Hank-The-Cowdog-Official-Fan-Club/200810493266783" class="fb">Facebook</a>
+		            <p><a href="http://www.facebook.com/pages/Hank-The-Cowdog-Official-Fan-Club/200810493266783">Visit Hank's Facebook page</a></p>
+		          </div>
+							<div class="socialitem">
+		            <a href="http://www.twitter.com/hankthecowdog1/" class="tw">Twitter</a>
+		            <p><a href="http://www.twitter.com/hankthecowdog1/">Follow Hank <br />on Twitter</a></p>
+		          </div>
+		          <div class="socialitem">
+		            <a href="https://www.youtube.com/channel/UCWs8pIPkMwdOXy6YOIf6GSQ" class="yt">Youtube</a>
+		            <p><a href="https://www.youtube.com/channel/UCWs8pIPkMwdOXy6YOIf6GSQ">Watch Hank <br />on YouTube</a></p>
+		          </div>
+		          <div class="socialitem">
+		            <a href="http://www.pinterest.com/hankthecowdog1/" class="pt">Pinterest</a>
+		            <p><a href="http://www.pinterest.com/hankthecowdog1/">Follow Hank <br />on Pinterest</a></p>
+		          </div>
+							<div class="socialitem" id="last">
+		            <a href="/contact" class="em">Email</a>
+		            <p><a href="/contact">Send Hank <br />an Email</a></p>
+		          </div>
+				</div>
+				<!-- Begin MailChimp Signup Form -->
+				<div id="mc_embed_signup" class="newsletter">
+					<form action="http://hankthecowdog.us2.list-manage2.com/subscribe/post?u=d000630a7f7347031ea72e1ef&amp;id=206a48ab8f" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+					<h3>Get the Latest</h3>
+					<div class="pen"></div>
+                    <p>Keep up with Hank's news<br />and promotions by signing<br />up for our e-news. </p><p class="tinytext"><a href="/securityforce">Looking for The Hank Times<br /> fan club newsletter? </a></p>
+					<label for="mce-EMAIL">Enter your email address</label>
+					<input type="email" value="" name="EMAIL" class="inputStandard" id="mce-EMAIL" required>
+					<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="signup">
+					</form>
+				</div><!--End mc_embed_signup-->
+				<a href="/news"><div id="newsSidebar">
+					<h3>Hank in the News</h3>
+					<div class="paper"></div>
+					<p>Find out what the media is saying about Hank.</p>
+					<a href="/news" class="goshort">Go</a>
+				</div></a><!--/news-sidebar-->
+			</div><!--/right-->
+		</div><!--/contentinner-->
+		</div><!--/cwtop-->
+		</div><!--/cwbottom-->
+	</div><!--/content-->
+	<script language="javascript">
+    $(document).ready(function(){
+      // Contact form labels
+      $("label").inFieldLabels();
+    });
+</script>
+<%= render 'shared/footer' %>

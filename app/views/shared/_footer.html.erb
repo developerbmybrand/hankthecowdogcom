@@ -1,0 +1,82 @@
+	<div id="featured">
+		<div class="featuredinner">
+			<h3>Featured Book</h3>
+			<div class="featuredbook">
+				<div class="fbookleft">
+					<h4><%= @featured_book.book_title if @featured_book %></h4>
+					<%= @featured_book.book_desc.html_safe if @featured_book  %>
+					<ul>
+						<li><a href="<%= @featured_book.book_link if @featured_book  %>" class="buy">Buy</a></li>
+						<li><a href="/books/<%= @featured_book.id if @featured_book  %>" class="read">Read</a></li>
+						<li><a href="/books/<%= @featured_book.id if @featured_book  %>" class="listen">Listen</a></li>
+					</ul>
+				</div>
+				<div class="fbookright">
+					<a href="/books/<%= @featured_book.id if @featured_book  %>"><%= image_tag(@featured_book.book_image.thumbsmall.url) if @featured_book %></a>
+				</div>
+			</div>
+		</div>
+		
+	</div><!--/featured-->
+	<div class="footer">
+		<div class="footerinner">
+			<a href="/" class="footerhome">Home</a>
+			<ul class="books">
+				<li><a href="/books"><span>Books</span></a></li>
+				<li><a href="/books">Browse Titles</a></li>
+				<li><a href="http://shop.hankthecowdog.com">Buy Books</a></li>
+				<li><a href="/bookaudio">Audio Samples</a></li>
+				<li><a href="/booksother">Other Books</a></li>
+			</ul>
+			<ul>
+				<li><a href="/fanzone"><span>Fan Zone</span></a></li>
+				<li><a href="/games">Games</a></li>
+				<li><a href="/friends">Hank &amp; Friends</a></li>
+				<li><a href="/securityforce">Security Force</a></li>
+				<li><a href="/educational">Educational Stuff</a></li>
+			</ul>
+			<ul>
+				<li><a href="/author"><span>Author</span></a></li>
+				<li><a href="/author">John Erickson's Bio</a></li>
+				<li><a href="/news">Hank in the News</a></li>
+				<li><a href="/concerts">In Concert</a></li>
+				<li><a href="/author">Contact John</a></li>
+			</ul>
+			<ul class="shop">
+				<li><a href="/books"><span>Shop</span></a></li>
+				<li><a href="<%= Settings.store_url_base %>/Hank-Paperbooks/products/1/">The Books</a></li>
+				<li><a href="<%= Settings.store_url_base %>">Store</a></li>
+				<li><a href="/contact">Get Help</a></li>
+				<li><a href="/retailers">Retailer Info</a></li>
+			</ul>
+			<ul class="social">
+				<li><a href="http://www.facebook.com/pages/Hank-The-Cowdog-Official-Fan-Club/200810493266783" class="facebook">Facebook</a></li>
+				<li><a href="http://www.twitter.com/hankthecowdog1/" class="twitter">Twitter</a></li>
+				<li><a href="/blog.rss" class="email">Email</a></li>
+			</ul>
+			<p class="legal">Contact By Phone: <b>806.435.7611</b> -- Copyright &copy; 2018 Maverick Books, Inc. All rights reserved. Site by <a href="http://statebuilt.com">State</a>.</p>
+		</div>
+		
+	</div>
+</div><!--/outer-->
+<%= javascript_include_tag "plugins" %>
+<%= javascript_include_tag "script" %>
+
+<!--[if lt IE 7 ]>
+	<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
+	<script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
+<![endif]-->
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-26231232-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>

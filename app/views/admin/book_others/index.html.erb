@@ -1,0 +1,36 @@
+<h1>Listing Other Books</h1>
+
+<% if @bookothers.count > 0 %>
+<div id="detailwin">  
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Volume</th>
+    <th>Store Link</th>
+    <th>Sort Weight</th>
+    <th>Published</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @bookothers.each do |book| %>
+  <tr>
+    <td><%= book.book_title %></td>
+    <td><%= book.book_volume_number %></td>
+    <td><a href="<%= book.book_link %>">Link</a></td>
+    <td><%= book.book_sortweight %></td>
+    <td><%= book.book_published? ? "Yes" : "No" %></td>
+    <td><%= link_to 'Show', [:admin, book] %></td>
+    <td><%= link_to 'Edit', edit_admin_book_other_path(book) %></td>
+    <td><%= link_to 'Destroy', [:admin, book], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+<% else %>
+None yet.  Create a new one!  
+<% end %>
+<br />
+
+<%= link_to 'New Book', new_admin_book_other_path %>

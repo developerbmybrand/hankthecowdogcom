@@ -1,0 +1,27 @@
+<h1>Users</h1>
+<div id="detailwin">
+<table cellpadding="10px">
+  <tr>
+    <th>Email</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.email %></td>
+    <td><%= user.first_name %></td>
+    <td><%= user.last_name %></td>
+    <td><%= link_to 'Edit', edit_admin_user_path(user), :class => 'button2' %></td>
+    <td><%= link_to 'Delete', [:admin, user], :confirm => 'Are you sure?', :method => :delete, :class => 'button2' %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+
+<br>
+<div class="actions2">
+<%= link_to 'New User', new_admin_user_path, :class => 'button' %>
+</div>

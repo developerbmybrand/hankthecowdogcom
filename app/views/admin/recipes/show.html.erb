@@ -1,0 +1,31 @@
+<h1>Recipe</h1>
+
+<p>
+  <b>Title:</b>
+  <%= @recipe.recipe_title %>
+</p>
+
+<p>
+  <b>Sub Title:</b>
+  <%= @recipe.recipe_subtitle %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= raw(@recipe.recipe_desc) %>
+</p>
+
+<p>
+  <b>Picture:</b>
+  <%= image_tag(@recipe.recipe_image.thumb.url) if @recipe.recipe_image? %>
+</p>
+
+<p>
+  <b>Published?:</b>
+  <%= @recipe.recipe_published? ? "Yes" : "No" %>
+</p>
+<div class="actions2">
+<%= link_to 'Edit', edit_admin_recipe_path(@recipe), :class => 'button2' %> 
+<%= link_to 'Back', admin_recipes_path, :class => 'button2' %> 
+<%= link_to 'Delete', [:admin, @recipe], :confirm => 'Are you sure?', :method => :delete, :class => 'button2' %>
+</div>

@@ -1,0 +1,16 @@
+# app/config/application.yml
+defaults: &defaults
+  contact_email_to: hank@hankthecowdog.com
+  store_contact_email_to: hank1@ptsi.net
+  store_url_base: http://shop.hankthecowdog.com
+  recaptcha_public_key: 6LcOLVcUAAAAAM47qYVLpePQTyxT4W8R28mqJNeP
+  recaptcha_private_key: 6LcOLVcUAAAAADLWLBGsMbJw0h8HFTOq3xJsLm9R
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

@@ -1,0 +1,37 @@
+<% content_for :header do %>
+   <link rel="stylesheet" type="text/css" media="all" href="/stylesheets/memory.css" />
+<% end %>
+<h1>Memory</h1>
+<h3>Find all 3 matching cards to clear the board.</h3>
+
+<% if games_supported_browser %>
+<script type="text/javascript" src="/javascripts/memory.js"></script>
+
+<div class="game">
+	<div class="gameboard">
+		<ul>
+          <% i = 0 %>
+          <% @cards.each do |card| %>
+          
+            <li id="card-<%= i %>" class="card card-<%= card %><% if Random.rand(100)>50 %> card-alt<% end %>">
+                <span></span>
+                <span class="back"></span>
+            </li>
+            
+          <% i += 1 %>      
+          <% end %>
+		</ul>
+		
+		<p class="win">You won! Woohoo!</p>
+	</div>
+</div>
+<p class="credits">
+    Based on code by <a href="http://www.maykelloomans.com/">Maykel Loomans</a>.
+</p>
+
+<% elsif %>
+  I'm sorry, your browser will not support this game. <br>
+  Please download the <a href="http://www.google.com/chrome" target="_blank">Google Chrome browser</a>.
+<% end %>
+
+<div class="backbutton"><a href="/games/" class="goback">Go Back</a></div>

@@ -1,0 +1,67 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @book.book_title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= raw(@book.book_desc) %>
+</p>
+
+<p>
+  <b>Excerpt Title:</b>
+  <%= raw(@book.book_excerpt_title) %>
+</p>
+
+<p>
+  <b>Excerpt:</b>
+  <%= raw(@book.book_excerpt_detail) %>
+</p>
+
+<p>
+  <b>Volume:</b>
+  <%= @book.book_volume_number %>
+</p>
+
+<p>
+  <b>Cover Image:</b>
+  <%= image_tag(@book.book_image.thumb.url) if @book.book_image? %>
+</p>
+
+<p>
+  <b>Audio Excerpt:</b>
+  <%= @book.book_audio || 'None Uploaded' %>
+</p>
+
+<p>
+  <b>Store Link:</b>
+  <a href="<%= @book.book_link %>"><%= @book.book_link %></a>
+</p>
+
+<p>
+  <b>Audible.com Store Link:</b>
+  <a href="<%= @book.book_linkaudible %>"><%= @book.book_linkaudible %></a>
+</p>
+
+<p>
+  <b>Store CD Link:</b>
+  <a href="<%= @book.book_linkcd %>"><%= @book.book_linkcd %></a>
+</p>
+
+<p>
+  <b>Featured Book:</b>
+  <%= @book.book_featured? ? "Yes" : "No" %>
+</p>
+
+<p>
+  <b>Published:</b>
+  <%= @book.book_published? ? "Yes" : "No" %>
+</p>
+
+<div class="actions2">
+<%= link_to 'Edit', edit_admin_book_path(@book), :class => 'button2' %> 
+<%= link_to 'Back', admin_books_path, :class => 'button2' %> 
+<%= link_to 'Delete', [:admin, @book], :confirm => 'Are you sure?', :method => :delete, :class => 'button2' %>
+</div>

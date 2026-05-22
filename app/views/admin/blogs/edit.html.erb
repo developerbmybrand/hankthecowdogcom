@@ -1,0 +1,6 @@
+<%= render 'form' %>
+<div class="actions2">
+<%= link_to 'Show', [:admin, @blog], :class => 'button2' %> 
+<%= link_to 'Back', admin_blogs_path, :class => 'button2' %> 
+<%= link_to 'Delete', [:admin, @blog], :confirm => 'Are you sure?', :method => :delete, :class => 'button2' %>
+</div>

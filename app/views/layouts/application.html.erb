@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+<title><%= content_for?(:title) ? yield(:title) : seo_title %></title>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="description" content="<%= content_for?(:meta_description) ? yield(:meta_description) : seo_description %>">
+<%= render 'shared/google_tags' %>
+<%= render 'shared/canonical' %>
+<meta name="keywords" content="Young Reader Books, books, audio books, Ranch, Cowboy, Children's books, Youth books, Funny books, Texas, Dogs, reading, young readers">
+
+<!-- Facebook Tags -->
+<meta property="og:title" content="<%= content_for?(:title) ? yield(:title) : seo_title %>"/>
+<meta property="og:type" content="book"/>
+<meta property="og:image" content="<%= site_host_url('/images/logo.png') %>"/>
+<meta property="og:url" content="<%= canonical_url %>"/>
+<meta property="og:site_name" content="Hank the Cowdog – Humorous Children's Mystery Book Series"/>
+<meta property="og:description" content="<%= content_for?(:meta_description) ? yield(:meta_description) : seo_description %>"/>
+<meta property="fb:app_id" content="253550721366694"/>
+
+<%= stylesheet_link_tag("main") %>
+<%= stylesheet_link_tag("list-rotator") %>
+<script src="/javascripts/jquery.js"></script>
+<%= javascript_include_tag "jquery.list-rotator" %>
+<%= javascript_include_tag "jquery.infieldlabel.min" %>
+<%= csrf_meta_tag %>
+
+<link rel="shortcut icon" href="/favicon.ico" />
+<link href="https://fonts.googleapis.com/css?family=Kameron:400,700" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="Feed Title" href="/blog.rss" />
+<script type="text/javascript"> 
+
+  $(document).ready(function() {            
+            
+      // Search function    
+      $('#topsearchgo').click(function() {
+          window.location = '/search/' + $("#topsearch").val();
+      });
+  
+      // Search enter key      
+      $('#topsearch').bind('keypress', function(e) {
+        var code = (e.keyCode ? e.keyCode : e.which);
+        if(code == 13) { 
+          window.location = '/search/' + $("#topsearch").val();
+        }
+      });
+  });
+</script>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>

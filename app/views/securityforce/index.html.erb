@@ -1,0 +1,72 @@
+<script language="javascript">
+  if ('<%= @redirect %>' != '') {
+    window.location = '<%= @redirect %>';
+  }
+</script>
+<script language="javascript">
+if (navigator.userAgent.toLowerCase().indexOf("chrome") >= 0) {
+	$(window).load(function(){
+		$('input:-webkit-autofill').each(function(){
+			var text = $(this).val();
+			var name = $(this).attr('name');
+			$(this).after(this.outerHTML).remove();
+			$('input[name=' + name + ']').val(text);
+		});
+	});
+}
+</script>
+<h1>Security Force</h1>
+<h3>Be a Hank super friend.</h3>
+
+<div class="badge">
+
+
+<h2>Are you a big Hank the Cowdog fan?</h2>
+
+<div style="width:420px">
+<h3>Then you’ll want to join Hank’s
+Security Force! Here is a peek at some of the neat stuff you will
+receive along with your membership:</h3>
+
+<p>A Hank paperback of your choice, an original Hank poster (19” x 25”),
+and a Hank bookmark. You'll also receive eight digital issues of "The
+Hank Times" newspaper with lots of great games, puzzles and other
+activities, additional stories about Hank and his friends, fun
+contests, and special previews of future books. You'll also gain
+access to the special, Members-Only, Security Force section of Hank's
+site! And, last but not least, you'll receive special discounts on
+Hank books, audios, and other products.</p>
+</div>
+
+<a href="http://shop.hankthecowdog.com/Subscriptions/products/8/" class="signup">Click here to sign up!</a>
+
+</div>
+<h4 style="margin-top: 20px">Already a member?  Log in here:</h4>
+<%= form_tag("/securityforce", :method => :post) do %>
+    <% if flash[:errors] %>
+    <div id="error_explanation">
+        <ul>
+          <li><%= flash[:errors] %></li>
+        </ul>
+    </div>
+    <% end %>
+
+    <p><label for="username">
+        User Name</label>
+        <%= text_field_tag :username, '', :autocomplete => 'off' %>
+	</p>
+	<p>
+    <label for="password">
+        Password</label>
+        <%= password_field_tag :password, '', :autocomplete => 'off' %>
+	</p>
+
+        <%= submit_tag("Login" , :class => 'login') %>
+<% end %>
+
+<script language="javascript">
+    $(document).ready(function(){
+      // Contact form labels
+      $("label").inFieldLabels();
+    });
+</script>

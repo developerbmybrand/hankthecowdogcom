@@ -1,0 +1,79 @@
+<%= javascript_include_tag "jcarousellite.min" %>
+<script type="text/javascript">
+		$(document).ready(function() {
+    $(".carousel").jCarouselLite({
+        btnNext: ".next",
+        btnPrev: ".prev"
+    });
+    $(".carousel2").jCarouselLite({
+        btnNext: ".next2",
+        btnPrev: ".prev2"
+    });
+    $(".carousel3").jCarouselLite({
+        btnNext: ".next3",
+        btnPrev: ".prev3"
+    });
+});
+</script>
+<h1>Educational Resources</h1>
+				<p class="subtitle">Fun activities for your students!</p>
+				<div class="fanzone">
+  
+    <h2>Teacher's Corner Blog</h2>
+    <% unless @post.nil? %>
+
+    <ul class="edfeed">
+      <div class="edupost">
+          <%= image_tag(@post.blog_image.url) if @post.blog_image? %>
+          <div class="postguts">
+          <p class="date"><%= @post.blog_postdate.strftime("%A, %B %d, %Y") %> </p>
+          <p class="posttitle"><a href="/blog/<%= @post.blog_slug %>"><%= @post.blog_title %></a></p>
+          <p class="postbody"><%= post_body(@post) %></p>
+          <%= link_to 'See All', '/blog/category/Teachers%20Corner', :class => 'seemore' %>
+          </div>
+      </div>
+    </ul>
+  
+    <% else %>
+      No teacher's corner posts yet.
+    <% end %>
+
+  <h2>Print-Outs</h2>
+
+  <div class="prints">
+    <ul>
+      <% @printouts.each do |printout| %>
+      <li>
+        <a href="<%= printout.printout_filename %>"><%= printout.printout_name %></a>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <h2>Hank the Cowdog in Concert</h2>
+
+  <div class="concert">
+    <a href="/concerts" class="authorthumb">See Hank the Cowdog in Concert</a>
+    <%= insert_content('Resources') %>
+    <a href="/concerts" class="seemore">See More</a>
+  </div>
+   
+  <h2 style="clear:both;margin-top:20px;">Stage Plays</h2>
+
+  <div class="carousel">
+    <ul>
+      <% @screenplay.each do |play| %>
+          <li>
+            <a href="/stageplays/<%= play.id %>"><%= image_tag(play.screen_image.url, :size => '140x140') if play.screen_image? %></a>
+          </li>
+      <% end %>
+    </ul>
+  </div>
+  <a class="next" href="#">next</a>
+</div>
+<div class="ar">
+  <h2>Accelerated Reader</h2>
+  <p>Did you know all Hank books are approved for AR? Hank provides a fun and captivating
+    platform for your students to experience the joys of reading and improve their skills.</p>
+  </div>
+

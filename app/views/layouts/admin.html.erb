@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+  <title>Hank the Cowdog :: Administration</title>
+  <%= stylesheet_link_tag("admin") %>
+  <script src="/javascripts/jquery.js"></script>
+  <script type="text/javascript" src="/assets/tinymce.js"></script>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+<div class="header">
+  <%= render 'shared/admin_header' %>
+</div>
+<div class="leftnav">
+  <%= render 'shared/admin_leftbar' %>
+</div>
+
+<div class="content">
+
+<div class="notice"><%= flash[:notice] %></div>
+
+<%= yield %>
+</div>
+<%= tinymce %>
+</body>
+</html>

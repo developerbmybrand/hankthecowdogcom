@@ -1,0 +1,67 @@
+<h1>Meet the Author</h1>
+<h3>John R. Erickson</h3>
+
+  <% if @contact.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@contact.errors.count, "error") %> found on this page:</h2>
+
+      <ul>
+      <% @contact.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div style="color:green"><%= flash[:notice] %></div>
+
+<div class="content">
+	<p><img src="images/author-pic.jpg" alt="John R. Erickson">
+	<%= insert_content('Author Header') %>
+	<div class="slidingDiv">
+ 	<%= insert_content('Author More') %>
+	</div>
+	<a href="javascript:" class="show_hide">Read More</a><a class="visitblog" href="/blog">Visit the Blog</a>
+
+  <%= insert_content('Author Content') %>
+  <%= insert_content_image('Author Content') %>
+
+	<h2>Upcoming Appearances</h2>
+    <div class="events">
+        <div class="eventfeedlist">
+          <% @events.each do |event| %>
+            <div class="itemblock">
+                <div class="date"><%= event.blog_postdate.strftime("%b") %><br /><span><%= event.blog_postdate.strftime("%d") %></span></div>
+                <p><a href="/blog/<%= event.blog_slug %>"><%= event.blog_title %></a></p>
+            </div>
+          <% end %>
+        </div>
+        <a class="seemore" href="/events">See More</a>
+    </div>
+	<h2>Get in Touch</h2>
+	<div class="authorform">
+  		<%= form_for :contact do |f| %>
+  		<div class="authorformleft">
+    		<p><label for="contact_name">Your Name</label>
+    		<%= f.text_field :name, :size => 40 %></p>
+    		<p><label for="contact_email">Your Email</label>
+    		<%= f.text_field :email, :size => 40 %></p>
+    		<p><label for="contact_phone">Your Phone</label>
+    		<%= f.text_field :phone, :size => 40 %></p>
+            <p><%= recaptcha_tags %></p>
+    		<%= f.submit 'Send', :class => 'sendit' %>
+  		</div>
+  		<div class="authorformright">
+    	<p><label for="contact_message">Your Message</label>
+        <%= f.text_area :message, :cols => 10, :rows => 1 %>
+    	</p>                  
+  		</div>
+  		<% end %>
+	</div>
+	<div class="addy">
+	<p>John R. Erickson<br />
+	Maverick Books, Inc.<br />
+	PO Box 549<br />
+	Perryton, TX 79070</p>
+	</div>
+</div>

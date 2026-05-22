@@ -1,0 +1,29 @@
+<%= form_for([:admin, @ringtone], :html => {:multipart => true}) do |f| %>
+    <% if @ringtone.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ringtone.errors.count, "error") %> prohibited this ringtone from being saved:</h2>
+
+      <ul>
+      <% @ringtone.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+    <% end %>
+
+    <div class="field">
+        Title<br />
+        <%= f.text_field :title %>
+    </div>
+    <div class="field">
+      Audio File (M4R)<br />
+      <%= @ringtone.ringtone_audio if @ringtone.ringtone_audio?%>
+      <br>
+      <%= f.file_field :ringtone_audio %>
+      <%= f.hidden_field :ringtone_audio_cache %>
+    </div>
+
+    <div class="actions">
+        <%= f.submit %>
+    </div>
+<% end %>

@@ -1,0 +1,7 @@
+<h1><%= @friend.friend_name %></h1>
+<div class="friend"><%= image_tag(@friend.friend_image.url) if @friend.friend_image? %>
+
+<p><%= raw(@friend.friend_desc) %>
+</p>
+</div>
+<a href="/friends/" class="goback">Go Back</a>

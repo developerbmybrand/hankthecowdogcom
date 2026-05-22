@@ -1,0 +1,35 @@
+<% content_for :header do %>
+ <!-- ADDITIONAL PAGE HEADERS HERE -->
+<% end %>  
+<h1>Dog Years Calculator</h1>
+<h3>Find out how old you are in dog years.</h3>
+
+
+
+<script language="LiveScript">
+
+<!-- 
+
+function fido (form)
+
+{form.dogyears.value = form.humanyears.value*7}
+
+//-->
+
+</script>
+<p>Did you know the age of dogs is thought of differently than that of people? Dogs age must faster than we do. Enter your age into the box below and hit "go" to find out how old you are in dog years.</p>
+<div class="dogage">
+ <form>
+ <label for="humanyears" >Enter your age:</label><input type="text" name="humanyears" >
+
+
+<input type="button" value="Calculate" onclick="fido(this.form)" class="go">
+
+
+<h2>Your age in Dog Years is:</h2>
+<input type="text" name="dogyears" class="dogyears">
+
+	</form>
+  </div>         
+
+<div class="backbutton"><a href="/games/" class="goback">Go Back</a></div>

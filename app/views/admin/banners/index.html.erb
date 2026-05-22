@@ -1,0 +1,35 @@
+<h1>Banners</h1>
+
+<% if @banners.count > 0 %>
+<div id="detailwin">  
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Link</th>
+    <th>Sort Weight</th>
+    <th>Published</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+<% @banners.each do |banner| %>
+  <tr>
+    <td><%= banner.banner_title %></td>
+    <td><a href="<%= banner.banner_link %>" target="_blank"><%= banner.banner_link %></td>
+    <td><%= banner.banner_sortweight %></td>
+    <td><%= banner.banner_published? ? "Yes" : "No" %></td>
+    <td><%= link_to 'Show', [:admin, banner], :class => 'button2' %></td>
+    <td><%= link_to 'Edit', edit_admin_banner_path(banner), :class => 'button2' %></td>
+    <td><%= link_to 'Delete', [:admin, banner], :confirm => 'Are you sure?', :method => :delete, :class => 'button2' %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+<% else %>
+None yet.  Create a new one!
+<% end %>
+
+<br />
+
+<%= link_to 'New Banner', new_admin_banner_path, :class => 'button' %>
+

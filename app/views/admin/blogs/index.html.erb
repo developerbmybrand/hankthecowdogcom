@@ -1,0 +1,38 @@
+<h1>Blog</h1>
+
+<% if @blogs.count > 0 %>
+<div id="detailwin">  
+<table>
+  <tr>
+    <th width="25%"><%= link_to 'Title', '?sort=by_title' %></th>
+    <th width="10%"><%= link_to 'Category', '?sort=by_category' %></th>
+    <th width="10%"><%= link_to 'Tags', '?sort=by_category' %></th>
+    <th width="25%"><%= link_to 'Post Date', '?sort=by_postdate' %></th>
+    <th width="5%"><%= link_to 'Published', '?sort=by_published' %></th>
+    <th width="5%">&nbsp;</th>
+    <th width="5%">&nbsp;</th>
+    <th width="5%">&nbsp;</th>
+  </tr>
+
+<% @blogs.each do |blog| %>
+  <tr>
+    <td><%= blog.blog_title %></td>
+    <td><%= TypeBlogCategory.find(blog.type_blog_category_id).type_name %></td>
+    <td><%= get_tag_names(blog.blog_tags) %></td>
+    <td><%= blog.blog_postdate.strftime("%A, %B %d, %Y") %></td>
+    <td><%= blog.blog_published? ? "Yes" : "No" %></td>
+    <td><%= link_to 'Show', [:admin, blog], :class => 'button2' %></td>
+    <td><%= link_to 'Edit', edit_admin_blog_path(blog), :class => 'button2' %></td>
+    <td><%= link_to 'Delete', [:admin, blog], :confirm => 'Are you sure?', :method => :delete, :class => 'button2' %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+<% else %>
+None yet.  Create a new one!
+<% end %>
+
+<br />
+<div class="actions2">
+<%= link_to 'New Blog Post', new_admin_blog_path, :class => 'button' %>
+</div>

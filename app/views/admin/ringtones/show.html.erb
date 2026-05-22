@@ -1,0 +1,15 @@
+<p>
+  <b>Title:</b>
+  <%= @ringtone.title %>
+</p>
+
+<p>
+  <b>Ringtone file:</b>
+  <a href="<%= @ringtone.ringtone_audio %>">Download</a>
+</p>
+
+<div class="actions2">
+<%= link_to 'Edit', edit_admin_ringtone_path(@ringtone), :class => 'button2' %> 
+<%= link_to 'Back', admin_ringtones_path, :class => 'button2' %> 
+<%= link_to 'Delete', [:admin, @ringtones], :confirm => 'Are you sure?', :method => :delete, :class => 'button2' %>
+</div>

@@ -1,0 +1,22 @@
+<h1>Newsletter</h1>
+
+<p>
+  <b>Newsletter name:</b>
+  <%= @newsletter.newsletter_name %>
+</p>
+
+<p>
+  <b>Newsletter date:</b>
+  <%= @newsletter.newsletter_date %>
+</p>
+
+<p>
+  <b>Newsletter:</b>
+  <a href="<%= @newsletter.newsletter_path %>">Download</a>
+</p>
+
+<div class="actions2">
+<%= link_to 'Edit', edit_admin_newsletter_path(@newsletter), :class => 'button2' %> 
+<%= link_to 'Back', admin_newsletters_path, :class => 'button2' %> 
+<%= link_to 'Delete', [:admin, @newsletter], :confirm => 'Are you sure?', :method => :delete, :class => 'button2' %>
+</div>

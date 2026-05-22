@@ -1,0 +1,23 @@
+<h1>Blog Tags</h1>
+
+<div id="detailwin">  
+<table width="400px">
+  <tr>
+    <th>Tag Name</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @admin_type_blog_tags.each do |admin_type_blog_tag| %>
+  <tr>
+    <td ><%= admin_type_blog_tag.type_name %></td>
+    <td ><%= link_to 'Edit', edit_admin_type_blog_tag_path(admin_type_blog_tag), :class => 'button2' %></td>
+    <td ><%= link_to 'Destroy', [:admin, admin_type_blog_tag], :confirm => 'Are you sure?', :method => :delete, :class => 'button2' %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+
+<br />
+
+<%= link_to 'New Blog Category', new_admin_type_blog_tag_path, :class => 'button' %>

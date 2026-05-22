@@ -1,0 +1,40 @@
+<%= form_for([:admin, @content], :html => {:multipart => true}) do |f| %>
+  <% if @content.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@content.errors.count, "error") %> found on this page:</h2>
+
+      <ul>
+      <% @content.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    Content Page<br />
+    <%= f.collection_select :type_content_page_id, TypeContentPage.ordered(:type_name), :id, :type_name, {:prompt => '--Select--'} %>
+  </div>  
+  <div class="field">
+    Content Title<br />
+    <%= f.text_field :content_title %>
+  </div>  
+  <div class="field">
+    Content Body<br />
+    <%= f.text_area :content_text, :class => 'tinymce', :cols => "80", :rows => "15" %>
+  </div>
+  <div class="field">
+    Content Image<br />
+    <%= image_tag(@content.content_image.url) if @content.content_image? && !@content.content_image.nil? %>
+    <br>
+    <%= f.file_field :content_image %>
+    <%= f.hidden_field :content_image_cache %>
+  </div>
+  <div class="field">
+    Published?<br />
+    <%= f.check_box :content_published %>
+  </div>  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

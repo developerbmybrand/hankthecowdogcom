@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Printout name:</b>
+  <%= @printout.printout_name %>
+</p>
+
+<p>
+  <b>Printout description:</b>
+  <%= @printout.printout_description %>
+</p>
+
+<p>
+  <b>Printout image:</b>
+  <%= image_tag(@printout.printout_image.url) if @printout.printout_image? %>
+</p>
+
+<p>
+  <b>Printout file:</b>
+  <a href="<%= @printout.printout_filename %>">Download</a>
+</p>
+<div class="actions2">
+<%= link_to 'Edit', edit_admin_printout_path(@printout), :class => 'button2' %> 
+<%= link_to 'Back', admin_printouts_path, :class => 'button2' %> 
+<%= link_to 'Delete', [:admin, @printouts], :confirm => 'Are you sure?', :method => :delete, :class => 'button2' %>
+</div>

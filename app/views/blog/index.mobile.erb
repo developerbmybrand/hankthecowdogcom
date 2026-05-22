@@ -1,0 +1,29 @@
+<h1>The Blog</h1>
+<h4>Updates from the Team</h4>
+<ul class="blog">
+
+<% unless @posts.nil? %>
+
+  <% @posts.each do |post| %>
+    <li>
+      <h3><%= link_to post.blog_title, post_link_path(post) %></h3>
+      <p class="postmeta"><%= post.blog_postdate.strftime("%A, %B %d, %Y") %>
+        <% unless post.blog_author.nil? || post.blog_author.empty? %>
+          | By <%= post.blog_author %>
+        <% end %>
+       <% unless current_auth.nil? %>
+          | <%= link_to 'Edit Post', edit_admin_blog_path(post.id) %>
+        <% end %>
+      </p>
+
+      <p>
+        <%= raw(short_post(post.blog_body)) %>
+        <%= link_to 'Read More',post_link_path(post), :class => 'more' %>
+      </p>
+      </li>
+  <% end %>
+
+<% else %>
+    Sorry, no posts available.
+<% end %>
+</ul>

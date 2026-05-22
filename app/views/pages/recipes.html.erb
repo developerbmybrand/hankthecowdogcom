@@ -1,0 +1,13 @@
+<h1>Recipes</h1>
+<h3>From the Kitchen of Sally May.</h3>
+
+<% @recipes.each do |recipe| %>
+	<div class="recipe-list">
+		<div class="recipelist">
+			<h2><%= recipe.recipe_title %></h2>
+			<h3><%= recipe.recipe_subtitle %></h3>
+			<a class="seemore" href="/recipes/<%= recipe.id %>">See More</a>
+		</div>
+	</div>
+<% end %>
+<div class="top"><a href="#top">back to top</a></div>			

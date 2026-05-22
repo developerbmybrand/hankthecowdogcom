@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+<title><%= content_for?(:title) ? yield(:title) : seo_title %></title>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="description" content="<%= content_for?(:meta_description) ? yield(:meta_description) : seo_description %>">
+<%= render 'shared/google_tags' %>
+<%= render 'shared/canonical' %>
+<meta name="keywords" content="Young Reader Books, books, audio books, Ranch, Cowboy, Children's books, Youth books, Funny books, Texas, Dogs, reading, young readers">
+
+<!-- Facebook Tags -->
+<meta property="og:title" content="<%= content_for?(:title) ? yield(:title) : seo_title %>"/>
+<meta property="og:type" content="book"/>
+<meta property="og:url" content="<%= canonical_url %>"/>
+<%= yield :facebookimage %>
+<meta property="og:image" content="<%= site_host_url('/images/logo.png') %>"/>
+<meta property="og:site_name" content="Hank the Cowdog – Humorous Children's Mystery Book Series"/>
+<meta property="og:description" content="<%= content_for?(:meta_description) ? yield(:meta_description) : seo_description %>"/>
+<meta property="fb:app_id" content="253550721366694"/>
+
+<%= stylesheet_link_tag("main") %>
+<%= stylesheet_link_tag("jplayer") %>
+<%= stylesheet_link_tag("colorbox") %>
+<script src="/javascripts/jquery.js"></script>
+<%= javascript_include_tag "custom-form-elements.js" %>
+<%= javascript_include_tag "jquery.jscrollpane.min" %>
+<%= javascript_include_tag "jquery.jplayer.min" %>
+<%= javascript_include_tag "jquery.infieldlabel.min" %>
+<%= javascript_include_tag "jquery.colorbox-min" %>
+<%= javascript_include_tag "jquery.easing" %>
+<%= javascript_include_tag "jquery.mousewheel.min" %>
+<%= csrf_meta_tag %>
+
+<%= yield :head %>
+
+<link rel="shortcut icon" href="/favicon.ico" /> 
+<link rel="apple-touch-icon-precomposed" href="images/image.png" />
+<link rel="alternate" type="application/rss+xml" title="Feed Title" href="/blog.rss" />
+<link href="https://fonts.googleapis.com/css?family=Kameron:400,700" rel="stylesheet" type="text/css">
+
+<script type="text/javascript"> 
+          
+  $(document).ready(function() {
+
+      // Excerpt scroll
+      $('.scroll-pane').jScrollPane();
+      
+      // Sliding div
+      $(".slidingDiv").hide();
+      $(".show_hide").show();
+      $('.show_hide').click(function(){
+          $(".slidingDiv").slideToggle();
+      });
+  
+      // Search function    
+      $('#topsearchgo').click(function() {
+          window.location = '/search/' + $("#topsearch").val();
+      });
+  
+      // Search enter key      
+      $('#topsearch').bind('keypress', function(e) {
+        var code = (e.keyCode ? e.keyCode : e.which);
+        if(code == 13) { 
+          window.location = '/search/' + $("#topsearch").val();
+        }
+      });	  
+  });
+  
+  // Get friend detail on the friends page
+  function getdetail(slug) {			
+	  $.getJSON('/friends/' + slug + '.json', function(data) {
+		  
+		$('#friendname').html(data.friend_name);
+		$('#friendimage img').attr('src', data.friend_image.url);
+		$('#frienddesc').html(data.friend_desc);
+		$('#frienddetail').slideDown(1000);
+		$(window).scrollTop(300);
+	  });		
+  }
+</script>
+
+<%= yield :header %>
+
+</head>
+<body>
+
+    <%= render 'shared/header' %>
+
+	<div id="content">
+		<div class="contentwrapbottom">
+		<div class="contentwraptop">
+		<div class="contentinner">
+			<div class="leftInner">
+
+            <%= yield %>
+
+            </div><!--/left-->
+			<div class="right">
+				<div class="socialstack">
+					<div class="socialitem">
+            <a href="http://www.facebook.com/pages/Hank-The-Cowdog-Official-Fan-Club/200810493266783" class="fb">Facebook</a>
+            <p><a href="http://www.facebook.com/pages/Hank-The-Cowdog-Official-Fan-Club/200810493266783">Visit Hank's Facebook page</a></p>
+          </div>
+					<div class="socialitem">
+            <a href="http://www.twitter.com/hankthecowdog1/" class="tw">Twitter</a>
+            <p><a href="http://www.twitter.com/hankthecowdog1/">Follow Hank <br />on Twitter</a></p>
+          </div>
+          <div class="socialitem">
+            <a href="https://www.youtube.com/channel/UCWs8pIPkMwdOXy6YOIf6GSQ" class="yt">Youtube</a>
+            <p><a href="https://www.youtube.com/channel/UCWs8pIPkMwdOXy6YOIf6GSQ">Watch Hank <br />on YouTube</a></p>
+          </div>
+          <div class="socialitem">
+            <a href="http://www.pinterest.com/hankthecowdog1/" class="pt">Pinterest</a>
+            <p><a href="http://www.pinterest.com/hankthecowdog1/">Follow Hank <br />on Pinterest</a></p>
+          </div>
+					<div class="socialitem" id="last">
+            <a href="/contact" class="em">Email</a>
+            <p><a href="/contact">Send Hank <br />an Email</a></p>
+          </div>
+				</div>
+				<!-- Begin MailChimp Signup Form -->
+				<div id="mc_embed_signup" class="newsletter">
+					<form action="http://hankthecowdog.us2.list-manage2.com/subscribe/post?u=d000630a7f7347031ea72e1ef&amp;id=206a48ab8f" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+					<h3>Get the Latest</h3>
+					<div class="pen"></div>
+					<p>Stay up on Hank's adven- <br />tures and promotions by signing up for our e-news.</p><p class="tinytext"><a href="/securityforce">Looking for The Hank Times<br /> fan club newsletter? </a></p>
+					<label for="mce-EMAIL">Enter your email address</label>
+					<input type="email" value="" name="EMAIL" class="inputStandard" id="mce-EMAIL" required>
+					<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="signup"></div>
+					</form>
+				</div><!--End mc_embed_signup-->
+
+                <%= insert_content_image('Inner Side Bar Image 1') %>
+                <%= insert_content_image('Inner Side Bar Image 2') %>
+                <%= insert_content('Inner Side Bar Text 1') %>
+                <%= insert_content('Inner Side Bar Text 2') %>
+
+			</div><!--/right-->
+		</div><!--/contentinner-->
+		</div><!--/cwtop-->
+		</div><!--/cwbottom-->
+	</div><!--/content-->
+    <script language="javascript">
+    $(document).ready(function(){
+      // Contact form labels
+      $("label").inFieldLabels();
+    });
+</script>
+    <%= render 'shared/footer' %>
+
+</body>
+</html>
